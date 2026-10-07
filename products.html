@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>محصولات | Mr Organico</title>
+<meta name="description" content="کاتالوگ کامل توتون ارگانیک، پوکه و فیلتر، پیپ و ادوات Mr Organico — با فیلتر دسته، جستجو و مرتب‌سازی قیمت.">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div id="siteHeader"></div>
+
+<section class="section" style="padding-top:44px">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">فروشگاه Mr Organico</span>
+      <h2>همه محصولات</h2>
+      <p>با فیلترها محصول مورد نظرتان را پیدا کنید؛ قیمت‌ها به‌روز و تضمین اصالت کالا.</p>
+    </div>
+
+    <div class="shop-layout">
+      <!-- فیلترها -->
+      <aside class="filter-panel">
+        <h4>🔍 فیلترها</h4>
+        <div class="filter-group">
+          <div class="f-title">دسته‌بندی</div>
+          <label class="chip"><input type="radio" name="fcat" value="all" checked><span>همه محصولات <small></small></span></label>
+          <label class="chip"><input type="radio" name="fcat" value="tobacco"><span>توتون و برگ ارگانیک <small></small></span></label>
+          <label class="chip"><input type="radio" name="fcat" value="tube"><span>پوکه و فیلتر <small></small></span></label>
+          <label class="chip"><input type="radio" name="fcat" value="accessory"><span>پیپ و ادوات <small></small></span></label>
+        </div>
+        <div class="filter-group">
+          <div class="f-title">تعداد محصولات</div>
+          <div style="font-size:.85rem;color:var(--ink-soft)">
+            توتون: <b id="cntTobacco"></b> • پوکه: <b id="cntTube"></b> • ادوات: <b id="cntAcc"></b>
+          </div>
+        </div>
+        <button class="btn btn-ghost btn-block" id="clearFilters" style="font-size:.85rem">حذف همه فیلترها</button>
+      </aside>
+
+      <!-- لیست -->
+      <div>
+        <div class="shop-toolbar">
+          <div class="search-box">
+            <input type="text" id="searchInput" placeholder="جستجو در محصولات...">
+            <span id="searchIcon"></span>
+          </div>
+          <span class="found" id="foundCount"></span>
+          <select id="sortSel">
+            <option value="default">مرتب‌سازی: پیش‌فرض</option>
+            <option value="cheap">ارزان‌ترین</option>
+            <option value="expensive">گران‌ترین</option>
+            <option value="off">بیشترین تخفیف</option>
+          </select>
+        </div>
+        <div class="products-grid" id="shopGrid"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="siteFooter"></div>
+
+<script src="js/products.js"></script>
+<script src="js/articles.js"></script>
+<script src="js/app.js"></script>
+<script src="js/shop.js"></script>
+<script>
+  renderHeader('products.html');
+  renderFooter();
+  ageGate();
+  document.getElementById('searchIcon').innerHTML = I.search;
+
+  /* شمارش دسته‌ها در فیلتر */
+  const cnt = k => PRODUCTS.filter(p => p.cat === k).length.toLocaleString('fa-IR');
+  document.querySelector('input[value="all"]').nextElementSibling.querySelector('small').textContent = `(${PRODUCTS.length.toLocaleString('fa-IR')})`;
+  document.querySelector('input[value="tobacco"]').nextElementSibling.querySelector('small').textContent = `(${cnt('tobacco')})`;
+  document.querySelector('input[value="tube"]').nextElementSibling.querySelector('small').textContent = `(${cnt('tube')})`;
+  document.querySelector('input[value="accessory"]').nextElementSibling.querySelector('small').textContent = `(${cnt('accessory')})`;
+  document.getElementById('cntTobacco').textContent = cnt('tobacco');
+  document.getElementById('cntTube').textContent = cnt('tube');
+  document.getElementById('cntAcc').textContent = cnt('accessory');
+
+  initShop();
+  initReveal();
+</script>
+</body>
+</html>

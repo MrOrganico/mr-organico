@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>جزئیات محصول | Mr Organico</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="css/fonts.css">
+
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div id="siteHeader"></div>
+
+<section class="section" style="padding-top:44px">
+  <div class="container">
+    <div id="pdBox"></div>
+  </div>
+</section>
+
+<section class="mq-section" style="padding-top:20px">
+  <div class="container">
+    <div class="section-head" style="margin-bottom:26px">
+      <span class="kicker">پیشنهاد مشابه</span>
+      <h2>ممکن است این‌ها را هم بپسندید</h2>
+    </div>
+  </div>
+  <div class="mq-band">
+    <div class="mq-track" id="relTrack"></div>
+  </div>
+</section>
+
+<div id="siteFooter"></div>
+
+<script src="js/products.js"></script>
+<script src="js/articles.js"></script>
+<script src="js/app.js"></script>
+<script src="js/shop.js"></script>
+<script>
+  renderHeader('products.html');
+  renderFooter();
+  ageGate();
+  initProduct();
+</script>
+</body>
+</html>

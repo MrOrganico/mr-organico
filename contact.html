@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تماس با ما | Mr Organico</title>
+<meta name="description" content="ارتباط با Mr Organico — سفارش محصولات، پشتیبانی و همکاری بین‌المللی: 09109204131">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div id="siteHeader"></div>
+
+<section class="section" style="padding-top:44px">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">تماس با ما</span>
+      <h2>همیشه در دسترس شما هستیم</h2>
+      <p>سفارش، مشاوره تخصصی یا درخواست همکاری بین‌المللی — از هر مسیری که راحت‌ترید پیام بدهید.</p>
+    </div>
+
+    <div class="cart-layout">
+      <!-- فرم -->
+      <div class="cart-box">
+        <h4 style="margin-bottom:18px">✉️ ارسال پیام</h4>
+        <div class="field"><label>نام شما *</label><input id="cfName" placeholder="نام و نام خانوادگی"></div>
+        <div class="field"><label>شماره تماس *</label><input id="cfPhone" placeholder="09xxxxxxxxx" inputmode="tel"></div>
+        <div class="field"><label>موضوع</label>
+          <select id="cfTopic">
+            <option>سفارش محصول</option>
+            <option>مشاوره تخصصی</option>
+            <option>پشتیبانی و پیگیری سفارش</option>
+            <option>همکاری بین‌المللی / صادرات (B2B)</option>
+          </select>
+        </div>
+        <div class="field"><label>پیام شما *</label><textarea id="cfMsg" placeholder="پیامتان را اینجا بنویسید..."></textarea></div>
+        <button class="btn btn-gold btn-block" id="cfSend">ارسال از طریق واتساپ</button>
+        <p style="font-size:.78rem;color:var(--ink-soft);text-align:center;margin-top:10px">
+          پیام شما مستقیماً در واتساپ پشتیبانی باز می‌شود
+        </p>
+      </div>
+
+      <!-- اطلاعات تماس -->
+      <div style="display:grid;gap:20px">
+        <div class="cart-box">
+          <h4 style="margin-bottom:16px">📞 راه‌های ارتباطی</h4>
+          <ul class="footer-contact" style="display:grid;gap:16px">
+            <li data-icon="phone"><a href="tel:+989109204131" style="font-weight:700;color:var(--gold-2)">09109204131</a></li>
+            <li data-icon="headset">سفارش و پشتیبانی — همه‌روزه ۹ تا ۲۱</li>
+            <li data-icon="mail"><a href="mailto:info@mrorganico.com">info@mrorganico.com</a></li>
+            <li data-icon="globe">پاسخ به درخواست‌های صادراتی: حداکثر ۴۸ ساعت</li>
+          </ul>
+        </div>
+        <div class="cart-box" style="background:linear-gradient(135deg,#153a4c,#0f2531)">
+          <h4 style="margin-bottom:12px">⚡ پاسخ سریع</h4>
+          <p style="font-size:.88rem;color:var(--ink-soft);margin-bottom:16px">
+            برای سریع‌ترین پاسخ، مستقیم در واتساپ پیام بدهید؛ کارشناس ما آنلاین پاسخ می‌دهد.
+          </p>
+          <a class="btn btn-green btn-block" href="https://wa.me/989109204131" target="_blank">💬 شروع گفتگو در واتساپ</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="siteFooter"></div>
+
+<script src="js/products.js"></script>
+<script src="js/articles.js"></script>
+<script src="js/app.js"></script>
+<script src="js/shop.js"></script>
+<script>
+  renderHeader('contact.html');
+  renderFooter();
+  ageGate();
+
+  /* آیکون‌های لیست تماس */
+  document.querySelectorAll('.footer-contact li[data-icon]').forEach(li => {
+    li.innerHTML = (I[li.dataset.icon] || I.check) + li.innerHTML;
+  });
+
+  document.getElementById('cfSend').onclick = () => {
+    const name = document.getElementById('cfName').value.trim();
+    const phone = document.getElementById('cfPhone').value.trim();
+    const topic = document.getElementById('cfTopic').value;
+    const msg = document.getElementById('cfMsg').value.trim();
+    if(!name || !phone || !msg){ toast('نام، شماره تماس و پیام را کامل کنید'); return; }
+    const text = `🌿 پیام جدید — ${topic}\n👤 ${name}\n📱 ${phone}\n\n${msg}`;
+    window.open(`${WA_LINK}?text=${encodeURIComponent(text)}`, '_blank');
+    toast('پیام شما در واتساپ آماده ارسال شد ✅');
+  };
+</script>
+</body>
+</html>

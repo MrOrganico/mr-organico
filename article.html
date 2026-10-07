@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مقاله | Mr Organico</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="css/fonts.css">
+
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div id="siteHeader"></div>
+
+<section class="section" style="padding-top:44px">
+  <div class="container article-wrap">
+    <div id="articleBox"></div>
+  </div>
+</section>
+
+<div id="siteFooter"></div>
+
+<script src="js/products.js"></script>
+<script src="js/articles.js"></script>
+<script src="js/app.js"></script>
+<script src="js/shop.js"></script>
+<script>
+  renderHeader('blog.html');
+  renderFooter();
+  ageGate();
+
+  const a = ARTICLES.find(x => x.id === new URLSearchParams(location.search).get('id'));
+  const box = document.getElementById('articleBox');
+  if(!a){
+    box.innerHTML = '<div class="empty-cart"><div class="big">📄</div><p>مقاله یافت نشد</p><a class="btn btn-gold" href="blog.html">همه مقالات</a></div>';
+  } else {
+    document.title = `${a.title} | Mr Organico`;
+    box.innerHTML = `
+      <div class="article-hero"><img src="${a.img}" alt="${a.title}" style="width:100%;aspect-ratio:16/7.5;object-fit:cover"></div>
+      <span class="p-cat">${a.cat}</span>
+      <h1>${a.title}</h1>
+      <div class="article-meta">
+        <span>🗓️ ${a.date}</span>
+        <span>⏱️ ${a.read} مطالعه</span>
+        <span>✍️ تحریریه Mr Organico</span>
+      </div>
+      <div class="article-body">${a.body}</div>
+      <div style="margin-top:40px;padding:26px;background:var(--surface);border:1px solid var(--line);border-radius:16px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap">
+        <b>تجربه خلوص واقعی را شروع کنید 🌿</b>
+        <a class="btn btn-gold" href="products.html">مشاهده محصولات</a>
+      </div>`;
+  }
+</script>
+</body>
+</html>

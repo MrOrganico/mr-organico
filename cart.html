@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>سبد خرید | Mr Organico</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div id="siteHeader"></div>
+
+<section class="section" style="padding-top:44px">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">سبد خرید</span>
+      <h2>سفارش شما</h2>
+    </div>
+
+    <div class="cart-layout">
+      <div class="cart-box" id="cartList"></div>
+
+      <div class="cart-box">
+        <h4 style="margin-bottom:18px">📋 اطلاعات سفارش</h4>
+        <div class="field"><label>نام و نام خانوادگی *</label><input id="coName" placeholder="مثلاً مهرشاد آزادی"></div>
+        <div class="field"><label>شماره تماس *</label><input id="coPhone" placeholder="09xxxxxxxxx" inputmode="tel"></div>
+        <div class="field"><label>شهر *</label><input id="coCity" placeholder="مثلاً تهران"></div>
+        <div class="field"><label>آدرس دقیق (اختیاری)</label><textarea id="coAddr" placeholder="خیابان، کوچه، پلاک..."></textarea></div>
+        <div id="cartSums"></div>
+        <p style="font-size:.78rem;color:var(--ink-soft);margin-top:14px;line-height:1.9">
+          پس از ثبت، سفارش شما در واتساپ باز می‌شود؛ کارشناس ما برای تأیید نهایی و هماهنگی پرداخت تماس می‌گیرد.
+        </p>
+        <a class="btn btn-ghost btn-block" style="margin-top:12px" href="tel:+989109204131">📞 سفارش تلفنی: 09109204131</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="siteFooter"></div>
+
+<script src="js/products.js"></script>
+<script src="js/articles.js"></script>
+<script src="js/app.js"></script>
+<script src="js/shop.js"></script>
+<script>
+  renderHeader('cart.html');
+  renderFooter();
+  ageGate();
+  initCartPage();
+</script>
+</body>
+</html>

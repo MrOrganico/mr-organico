@@ -31,7 +31,7 @@ const ARTICLES = [
   {
     id: 'pipe-guide',
     title: 'راهنمای کامل انتخاب و نگهداری پیپ طبیعی',
-    img: 'images/leaf-cigars.png',
+    img: 'images/leaf-cigars.webp',
     cat: 'راهنمای خرید', date: '۱۴۰۴/۰۶/۲۸', read: '۸ دقیقه',
     excerpt: 'از چوب Heather تا فرم کاسه و ساقه؛ هر آنچه قبل از خرید اولین پیپ باید بدانید.',
     body: `

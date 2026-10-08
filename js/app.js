@@ -150,7 +150,7 @@ function renderHeader(active){
       <div class="container nav">
         <a class="logo" href="index.html">
           <span class="logo-mark">
-            <svg viewBox="0 0 100 100"><path d="M50 88C30 74 16 56 20 34 42 30 66 40 76 58c6 11 4 22-4 30-6 6-14 8-22 0z" fill="none" stroke="#4fb3d9" stroke-width="4"/><path d="M50 88C42 66 34 48 24 36" stroke="#7fd0e8" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
+            <img src="images/logo-96.webp" alt="آرم Mr Organico">
           </span>
           <span class="logo-text"><strong>Mr Organico</strong><span>ارگانیک • اصیل • خالص</span></span>
         </a>
@@ -193,7 +193,7 @@ function renderFooter(){
         <div class="footer-grid">
           <div class="footer-about">
             <a class="logo" href="index.html">
-              <span class="logo-mark"><svg viewBox="0 0 100 100"><path d="M50 88C30 74 16 56 20 34 42 30 66 40 76 58c6 11 4 22-4 30-6 6-14 8-22 0z" fill="none" stroke="#4fb3d9" stroke-width="4"/><path d="M50 88C42 66 34 48 24 36" stroke="#7fd0e8" stroke-width="3" fill="none" stroke-linecap="round"/></svg></span>
+              <span class="logo-mark"><img src="images/logo-96.webp" alt="آرم Mr Organico"></span>
               <span class="logo-text"><strong>Mr Organico</strong><span>ارگانیک • اصیل • خالص</span></span>
             </a>
             <p>مرجع تخصصی توتون ارگانیک، برگ طبیعی و پیپ دست‌ساز — بدون هیچ افزودنی و ماده شیمیایی. از مزرعه تا بسته‌بندی، تحت نظارت کامل.</p>

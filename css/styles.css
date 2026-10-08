@@ -89,6 +89,7 @@ header.site{
   box-shadow:inset 0 0 18px rgba(79,179,217,.14);
 }
 .logo-mark svg{ width:26px; height:26px; }
+.logo-mark img{ width:100%; height:100%; object-fit:cover; border-radius:12px; display:block; }
 .logo-text strong{ display:block; font-size:1.05rem; font-weight:900; letter-spacing:.02em; }
 .logo-text span{ font-size:.68rem; color:var(--gold-2); letter-spacing:.28em; }
 .nav-links{ display:flex; gap:4px; }
@@ -353,7 +354,7 @@ header.site{
 .cf-stage::after{ inset-inline-end:0; background:linear-gradient(270deg,var(--bg),transparent); }
 .cf-ring{ position:absolute; inset:0; transform-style:preserve-3d; }
 .cf-stage .c3d-card{
-  left:50%; top:50%; width:252px; height:370px;
+  left:50%; top:50%; right:auto; bottom:auto; width:252px; height:370px;
   margin:-185px 0 0 -126px;
   transition:transform .65s cubic-bezier(.22,.8,.3,1), opacity .65s, filter .65s;
 }
@@ -363,7 +364,7 @@ header.site{
 .cf-dots{ display:flex; gap:7px; align-items:center; margin:0 10px; }
 .cf-dot{ width:9px; height:9px; border-radius:20px; background:var(--line); transition:.35s; }
 .cf-dot.on{ width:26px; background:var(--gold-2); }
-@media(max-width:600px){ .cf-stage{ height:390px; } .cf-stage .c3d-card{ width:224px; height:346px; margin:-173px 0 0 -112px; } }
+@media(max-width:600px){ .cf-stage{ height:390px; } .cf-stage .c3d-card{ width:224px; height:346px; margin:-173px 0 0 -112px; right:auto; bottom:auto; } }
 
 /* ---------- نوار متحرک بی‌نهایت ---------- */
 .mq-section{ padding:56px 0; overflow:hidden; }
@@ -378,9 +379,10 @@ header.site{
 .mq-band::before{ inset-inline-start:0; background:linear-gradient(90deg,var(--bg),transparent); }
 .mq-band::after{ inset-inline-end:0; background:linear-gradient(270deg,var(--bg),transparent); }
 .mq-track{
-  display:flex; gap:18px; width:max-content; direction:ltr;
+  display:flex; width:max-content; direction:ltr;
   animation:mqSlide 55s linear infinite; will-change:transform;
 }
+.mq-set{ display:flex; gap:18px; padding-inline-end:18px; flex-shrink:0; }
 .mq-band:hover .mq-track{ animation-play-state:paused; }
 @keyframes mqSlide{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
 .mq-card{

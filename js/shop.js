@@ -353,7 +353,7 @@ function featuredCard(p){
       <span class="p-cat">${CATEGORIES[p.cat].name}</span>
       <a class="c3d-name" href="product.html?id=${p.id}">${p.name}</a>
       <div class="c3d-foot">
-        <span class="c3d-price">${PRICE_FMT(p.price)}<span class="unit">تومان</span></span>
+        <span class="c3d-price">${PRICE_FMT(priceFor(p))}<span class="unit">تومان</span></span>
         <button class="add-btn" data-add="${p.id}" aria-label="افزودن به سبد">${I.plus}</button>
       </div>
     </div>
@@ -376,7 +376,7 @@ function initFeaturedCarousel(){
   });
 
   const stage = document.getElementById('c3dStage');
-  const BASE_SPEED = -0.11;           /* اسلوموشن: حدود ۷ درجه بر ثانیه */
+  const BASE_SPEED = -0.16;           /* اسلوموشن: ~۱۰ درجه بر ثانیه — چرخه کامل ~۳۶ ثانیه */
   let angle = 0, vel = BASE_SPEED;
   let paused = false, dragging = false, lastX = 0, moved = 0;
   let target = null;                   /* زاویه هدف هنگام زدن دکمه */
@@ -515,11 +515,12 @@ function buildMarquee(trackId, products){
       <div class="mq-thumb">${productThumb(p)}</div>
       <div class="mq-body">
         <span class="mq-name">${p.name}</span>
-        <span class="mq-price">${PRICE_FMT(p.price)} <small>تومان</small></span>
+        <span class="mq-price">${PRICE_FMT(priceFor(p))} <small>تومان</small></span>
       </div>
     </a>`;
   const html = products.map(card).join('');
-  track.innerHTML = html + html; /* دو نسخه برای حلقه بی‌نهایت */
+  /* دو ست کامل و هم‌عرض — انیمیشن -۵۰% دقیقاً یک ست جابجا می‌شود → حلقه بی‌درز */
+  track.innerHTML = `<div class="mq-set">${html}</div><div class="mq-set">${html}</div>`;
 }
 
 /* ---------- صفحه سبد خرید ---------- */

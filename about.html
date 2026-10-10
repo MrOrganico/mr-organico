@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
@@ -80,6 +80,61 @@
   </div>
 </section>
 
+<!-- ═══════════ مدارک و گواهینامه‌ها ═══════════ -->
+<style>
+  .cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:30px}
+  .cert-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease}
+  .cert-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(0,0,0,.35);border-color:var(--gold)}
+  .cert-card figure{margin:0;cursor:zoom-in;overflow:hidden}
+  .cert-card img{width:100%;display:block;aspect-ratio:1100/790;object-fit:cover;transition:transform .5s ease}
+  .cert-card:hover img{transform:scale(1.045)}
+  .cert-body{padding:18px 20px 20px;display:flex;flex-direction:column;gap:7px;flex:1}
+  .cert-issuer{font-size:.78rem;color:var(--gold);letter-spacing:.06em;font-weight:700}
+  .cert-body h3{margin:0;font-size:1.05rem}
+  .cert-body p{margin:0;font-size:.86rem;color:var(--ink-soft);line-height:1.95}
+  .cert-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto;padding-top:12px}
+  .cert-meta span{font-size:.72rem;background:var(--bg-2);border:1px solid var(--line);color:var(--ink-soft);padding:4px 11px;border-radius:99px}
+  @media(max-width:900px){.cert-grid{grid-template-columns:1fr}}
+</style>
+<section class="section" id="credentials">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="kicker">اعتماد و اعتبار</span>
+      <h2>مدارک و گواهینامه‌ها</h2>
+      <p>ماجرای Mr Organico فقط با عشق به برگ توتون شروع نشده است؛ پشت این برند، دانش حرفه‌ای در بازاریابی، برندسازی و مدیریت کسب‌وکار نهاده شده است.</p>
+    </div>
+    <div class="cert-grid">
+      <div class="cert-card reveal">
+        <figure title="برای بزرگ‌نمایی کلیک کنید"><img src="images/certificates/cert-google-dm.webp" alt="گواهینامه مبانی دیجیتال مارکتینگ — Google Digital Garage" loading="lazy"></figure>
+        <div class="cert-body">
+          <span class="cert-issuer">GOOGLE DIGITAL GARAGE</span>
+          <h3>مبانی دیجیتال مارکتینگ</h3>
+          <p>گذراندن موفق آزمون رسمی Fundamentals of Digital Marketing؛ تسلط بر اصول بازاریابی دیجیتال، برندسازی و جذب مشتری — مبنای معرفی حرفه‌ای برند در بازار ایران و بین‌الملل.</p>
+          <div class="cert-meta"><span>Google</span><span>۱۳۹۸ / ۲۰۱۹</span><span>بین‌المللی</span></div>
+        </div>
+      </div>
+      <div class="cert-card reveal">
+        <figure title="برای بزرگ‌نمایی کلیک کنید"><img src="images/certificates/cert-google-om.webp" alt="گواهینامه مبانی بازاریابی آنلاین — Google و IAB" loading="lazy"></figure>
+        <div class="cert-body">
+          <span class="cert-issuer">GOOGLE × IAB</span>
+          <h3>مبانی بازاریابی آنلاین</h3>
+          <p>گواهینامه مشترک Google Digital Garage و IAB در Online Marketing Fundamentals؛ درک عمیق از رفتار مشتری آنلاین، تبلیغات هدفمند و رشد پایدار برند در فضای دیجیتال.</p>
+          <div class="cert-meta"><span>Google Digital Garage</span><span>IAB</span><span>بین‌المللی</span></div>
+        </div>
+      </div>
+      <div class="cert-card reveal">
+        <figure title="برای بزرگ‌نمایی کلیک کنید"><img src="images/certificates/cert-mgmt.webp" alt="گواهینامه دوره مدیریت کاربردی" loading="lazy"></figure>
+        <div class="cert-body">
+          <span class="cert-issuer">CERTIFICATE OF ATTENDANCE</span>
+          <h3>دوره مدیریت کاربردی</h3>
+          <p>گذراندن دوره تخصصی Practical Management طی بیش از یک سال آموزش مستمر؛ مدیریت عملی تیم، زنجیره تأمین و عملیات روزانه کسب‌وکار — همان مهارتی که کیفیت ثابت محصولات ما را تضمین می‌کند.</p>
+          <div class="cert-meta"><span>۲۰۲۱ – ۲۰۲۲</span><span>شماره ثبت AS331420</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ═══════════ صادرات ═══════════ -->
 <section class="section" id="export">
   <div class="container">
@@ -110,6 +165,17 @@
   ageGate();
   document.querySelectorAll('.c-icon[data-i]').forEach(el => el.innerHTML = I[el.dataset.i]);
   initReveal();
+
+  /* لایت‌باکس گواهینامه‌ها */
+  document.querySelectorAll('.cert-card figure').forEach(f => {
+    f.onclick = () => {
+      const lb = document.createElement('div');
+      lb.className = 'lightbox';
+      lb.innerHTML = `<img src="${f.querySelector('img').src}" alt=""><button class="lb-close">✕</button>`;
+      document.body.appendChild(lb);
+      lb.onclick = e => { if(e.target === lb || e.target.closest('.lb-close')) lb.remove(); };
+    };
+  });
 </script>
 </body>
 </html>

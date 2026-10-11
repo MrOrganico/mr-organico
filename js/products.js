@@ -12,11 +12,11 @@ const CATEGORIES = {
 
 const PRODUCTS = [
   /* ---------- توتون و برگ ارگانیک (15) ---------- */
-  { id: 't01', cat: 'tobacco', img: 'images/burley-box.webp', name: 'توتون چاپمن آلمانی وارداتی (سیگار)', price: 6000000, oldPrice: 7050000, badge: 'جدید', weight: '۱۰۰ گرم', origin: 'آلمان',
+  { id: 't01', cat: 'tobacco', img: 'images/t01.webp', name: 'توتون چاپمن آلمانی وارداتی (سیگار)', kiloPrice: 6500000, badge: 'جدید', origin: 'آلمان',
     desc: 'برش یکدست و عطر اصیل آلمانی؛ تخمیر طبیعی بدون هیچ افزودنی شیمیایی. انتخابی بی‌نقص برای عاشقان سیگار دست‌ساز.' },
   { id: 't02', cat: 'tobacco', img: 'images/t02.webp', name: 'توتون مالت کوبایی اصل (پیپ و سیگار)', kiloPrice: 6000000, origin: 'کوبا',
     desc: 'مایلتی غنی و دودی از مزارع کوبا؛ تعادل کمنظیری میان قدرت و نرمی برای مصرف پیپ و سیگار.' },
-  { id: 't03', cat: 'tobacco', img: 'images/tobacco-pile.jpg', name: 'توتون اشنویه ایرانی (اصیل)', price: 3500000, oldPrice: 4020000, badge: 'پیشنهاد ویژه', weight: '۱۰۰ گرم', origin: 'ایران — اشنویه',
+  { id: 't03', cat: 'tobacco', img: 'images/t03.webp', name: 'توتون اشنویه ایرانی (اصیل)', kiloPrice: 3500000, badge: 'پیشنهاد ویژه', origin: 'ایران — اشنویه',
     desc: 'برگ اصیل اشنویه با خشک‌سازی سنتی و تخمیر کامل؛ رایحه خاکی و نوستالژیک توتون ایرانی قدیمی.' },
   { id: 't04', cat: 'tobacco', img: 'images/t04.webp', name: 'شاه‌توتون ترکیه (اورجینال)', kiloPrice: 6000000, origin: 'ترکیه',
     desc: 'توتون شرقی معروف ترکیه با برگ‌های خوش‌عطر و رطوبت متعادل؛ مناسب مصرف‌کننده حرفه‌ای.' },
@@ -24,11 +24,11 @@ const PRODUCTS = [
     desc: 'از منطقه موش ترکیه؛ طعمی ملایم و شیرین با عطر طبیعی که به هیچ مواد افزودنی نیاز ندارد.' },
   { id: 't06', cat: 'tobacco', img: 'images/t06.webp', name: 'توتون کاپیتان چرچیل وارداتی (سیگار و پیپ)', kiloPrice: 5000000, origin: 'وارداتی',
     desc: 'بلند ترکیبی با بدنه‌ای غنی و عطر وانیلی طبیعی؛ هم برای سیگار و هم برای پیپ عالی است.' },
-  { id: 't07', cat: 'tobacco', img: 'images/leaf-hanging.jpg', name: 'توتون کوبایی رشته‌ای (اورجینال)', price: 4500000, oldPrice: 5000000, badge: 'پیشنهاد ویژه', weight: '۱۰۰ گرم', origin: 'کوبا',
+  { id: 't07', cat: 'tobacco', img: 'images/t07.webp', name: 'توتون کوبایی رشته‌ای (اورجینال)', kiloPrice: 4500000, badge: 'پیشنهاد ویژه', origin: 'کوبا',
     desc: 'برش رشته‌ای دستی با برگ‌های بلند؛ سوخت یکنواخت و طعمی اصیل از دل کوبا.' },
-  { id: 't08', cat: 'tobacco', img: 'images/hero-tobacco.webp', name: 'توتون مارلبرو آمریکایی (اورجینال)', kiloPrice: 4000000, prices: { 100:400000, 200:800000, 300:1200000 }, origin: 'آمریکا', strength: 'سنگین', aroma: 'خاکی و قوی', taste: 'بدنه قوی خاکی با عمق دودی', cut: 'متوسط', suitable: 'سیگار / پیپ',
+  { id: 't08', cat: 'tobacco', img: 'images/t08.webp', name: 'توتون مارلبرو آمریکایی (اورجینال)', kiloPrice: 4000000, prices: { 100:400000, 200:800000, 300:1200000 }, origin: 'آمریکا', strength: 'سنگین', aroma: 'خاکی و قوی', taste: 'بدنه قوی خاکی با عمق دودی', cut: 'متوسط', suitable: 'سیگار / پیپ',
     desc: 'پروفایل طعمی قوی و خاکی مشهور آمریکایی؛ برای کسانی که قدرت و عمق را می‌خواهند.' },
-  { id: 't10', cat: 'tobacco', img: 'images/tobacco-pile.jpg', name: 'توتون شمزین ترکیه (اورجینال)', price: 4500000, oldPrice: 5000000, weight: '۱۰۰ گرم', origin: 'ترکیه',
+  { id: 't10', cat: 'tobacco', img: 'images/t10.webp', name: 'توتون شمزین ترکیه (اورجینال)', kiloPrice: 4000000, origin: 'ترکیه',
     desc: 'توتون اصیل منطقه شمزین؛ خشک‌سازی آفتابی و طعمی متعادل که هرگز کهنه نمی‌شود.' },
   { id: 't11', cat: 'tobacco', img: 'images/t11.webp', name: 'توتون دیویدوف (اورجینال)', kiloPrice: 5000000, origin: 'سوئیس',
     desc: 'لوکس‌ترین برند توتون دنیا؛ ظرافت سوئیسی، عطر ملایم و کیفیتی که نیاز به توصیف ندارد.' },
@@ -38,7 +38,7 @@ const PRODUCTS = [
     desc: 'برگ قوی و معطر از تپه‌های تفلیس؛ انتخابی اقتصادی با کیفیت شگفت‌زن‌کننده.' },
   { id: 't14', cat: 'tobacco', img: 'images/t14.webp', name: 'توتون بی‌شمه ترکیه (وارداتی)', kiloPrice: 4500000, origin: 'ترکیه',
     desc: 'توتون شرقی با برش متوسط و رایحه گیاهی؛ ماندگاری عطر فوق‌العاده در بسته‌بندی زیپ‌دار.' },
-  { id: 't15', cat: 'tobacco', img: 'images/leaf-hanging.jpg', name: 'توتون خاص‌برگ برش ریز پولکی (اورجینال)', price: 5000000, oldPrice: 6020000, weight: '۱۰۰ گرم', origin: 'برگزیده',
+  { id: 't15', cat: 'tobacco', img: 'images/t15.webp', name: 'توتون خاص‌برگ برش ریز پولکی (اورجینال)', price: 5000000, oldPrice: 6020000, weight: '۱۰۰ گرم', origin: 'برگزیده',
     desc: 'برش پولکی ظریف از برگ‌های دست‌انتخاب؛ فرآیند سرد تخمیر، عطری عمیق و ماندگار می‌سازد.' },
   { id: 't16', cat: 'tobacco', img: 'images/t16.webp', name: 'توتون اولیا اصل (Mac Baren)', kiloPrice: 4500000, origin: 'آلمان — Mac Baren',
     desc: 'از کارخانه افسانه‌ای Mac Baren آلمان؛ تعادل بی‌نظیر شیرینی و قدرت با بسته‌بندی اورجینال.' },
@@ -107,6 +107,36 @@ const PRODUCTS = [
 /* 👑 ویژه‌های صفحه اصلی (شناسه‌ها) */
 const FEATURED = ['t03', 't02', 'a14', 't01', 'a01', 'p07'];
 
+/* 🔍 کلیدواژه‌های SEO انگلیسی — زیر توضیحات توتون‌ها نمایش داده می‌شود */
+const SEO_TXT = {
+  t01: 'Mr Organico — Organic German Tobacco • Additive-Free Cigarette Blend',
+  t02: 'Mr Organico — Organic Cuban Malt Tobacco • Natural Pipe & Cigarette Blend',
+  t03: 'Mr Organico — Iranian Organic Tobacco (Oshnavieh) • Traditional Fermentation',
+  t04: 'Mr Organico — Turkish Oriental Tobacco • Premium Organic Blend',
+  t05: 'Mr Organico — Mus Turkish Organic Tobacco • Sun-Cured, Additive-Free',
+  t06: 'Mr Organico — Captain Churchill Blend • Organic Tobacco for Pipe & Cigarette',
+  t07: 'Mr Organico — Cuban Whole-Leaf String Tobacco • Hand-Processed',
+  t08: 'Mr Organico — American Style Blend • Strong Organic Tobacco',
+  t10: 'Mr Organico — Shemshin Turkish Tobacco • Sun-Dried Oriental Leaf',
+  t11: 'Mr Organico — Virginia Davidoff Style • Premium Organic Pipe Tobacco',
+  t12: 'Mr Organico — Dunhill Style Virginia & Burley • Cold Fermented Blend',
+  t13: 'Mr Organico — Tbilisi Georgian Leaf • Strong Aromatic Organic Tobacco',
+  t14: 'Mr Organico — Bishme Turkish Oriental Tobacco • Zip-Fresh Packaging',
+  t15: 'Mr Organico — Fine Flake Cut Tobacco • Cold-Fermented Organic Leaf',
+  t16: 'Mr Organico — Mac Baren Style Virginia • Premium Organic Blend',
+  n01: 'Mr Organico — Captain Black Cuba Red • Chocolate Aroma Pipe Tobacco',
+  n02: 'Mr Organico — Captain Black Cuba Gold • Mild Pipe & Cigarette Tobacco',
+  n03: 'Mr Organico — Winston Churchill Blend • Classic Balanced Organic Tobacco',
+  n04: 'Mr Organico — Dutch Style Blend • Sweet Aromatic Organic Tobacco',
+  n05: 'Mr Organico — Russian Style Blend • Light & Cool Organic Tobacco',
+  n07: 'Mr Organico — Colombia Gold • 100% Natural Organic Leaf Tobacco',
+  n08: 'Mr Organico — Colombia Black • Bold Organic Blend for Long Sessions',
+  n09: 'Mr Organico — Ecuador Malt Tobacco • Sweet & Mild Luxury Cigarette Blend',
+  n10: 'Mr Organico — Ecuador Malt Gold • Warm & Light Organic Blend',
+  n11: 'Mr Organico — Gold Russian Style • Smooth Light Organic Blend',
+  n12: 'Mr Organico — Winston American Style • Classic Balanced Organic Tobacco',
+};
+
 /* ---------- نظرات نمونه (برای صفحه محصول) ---------- */
 const REVIEW_POOL = [
   { n: 'سهیل شریفی',   t: 'کیفیت واقعاً عالی بود و بسته‌بندی خیلی مرتب انجام شده بود. ارسال هم سریع به دستم رسید.', r: 5 },
@@ -134,7 +164,7 @@ PRODUCTS.push(
   { id: 'n03', ref: 't03', cat: 'tobacco', img: 'images/n03.webp', kiloPrice: 5500000, name: 'توتون وینستون چرچیل',
     aroma: 'کلاسیک و متعادل', taste: 'بدنه‌ای متعادل با پایان‌بندی خاکی', strength: 'نیمه‌سنگین', cut: 'متوسط', suitable: 'سیگار / پیپ',
     desc: 'توتون وینستون چرچیل؛ تعادلی کلاسیک میان عطر و طعم متعادل اما با قدرت نیمه‌سنگین — برای مصرف‌کننده‌ای که بدنه را جدی می‌خواهد.' },
-  { id: 'n04', ref: 't04', cat: 'tobacco', kiloPrice: 4000000, prices: { 100:400000, 200:800000, 300:1200000 }, name: 'توتون مارلبرو هلندی',
+  { id: 'n04', ref: 't04', cat: 'tobacco', img: 'images/n04.webp', kiloPrice: 5000000, name: 'توتون مارلبرو هلندی',
     aroma: 'شیرین', taste: 'شیرینی ملایم روی بدنه سنگین', strength: 'سنگین', cut: 'متوسط', suitable: 'سیگار',
     desc: 'مارلبرو هلندی؛ با عطر شیرین متمایز و قدرت سنگین — انتخابی برای عاشقان بدنه‌های قوی با پس‌زمینه شیرین.' },
   { id: 'n05', ref: 't05', cat: 'tobacco', img: 'images/n05.webp', kiloPrice: 6000000, name: 'توتون مارلبرو روسی',

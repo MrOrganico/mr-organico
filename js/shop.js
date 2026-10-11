@@ -200,6 +200,7 @@ function initProduct(){
             </button>`).join('')}
         </div>` : ''}
         <p class="pd-desc">${p.desc}</p>
+        ${p.cat === 'tobacco' && typeof SEO_TXT !== 'undefined' && SEO_TXT[p.id] ? `<div class="pd-seo">🔍 ${SEO_TXT[p.id]}</div>` : ''}
         <div class="pd-actions">
           ${oos
             ? `<button class="btn btn-ghost" disabled>فعلاً ناموجود</button>`

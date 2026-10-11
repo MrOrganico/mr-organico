@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://mroorganico.github.io/mr-organico/</loc><priority>1.0</priority></url>
+  <url><loc>https://mroorganico.github.io/mr-organico/products.html</loc><priority>0.9</priority></url>
+  <url><loc>https://mroorganico.github.io/mr-organico/products.html?cat=tobacco</loc><priority>0.9</priority></url>
+  <url><loc>https://mroorganico.github.io/mr-organico/products.html?cat=tube</loc><priority>0.8</priority></url>
+  <url><loc>https://mroorganico.github.io/mr-organico/products.html?cat=accessory</loc><priority>0.8</priority></url>
+  <url><loc>https://mroorganico.github.io/mr-organico/about.html</loc><priority>0.7</priority></url>
+  <url><loc>https://mroorganico.github.io/mr-organico/club.html</loc><priority>0.7</priority></url>
+  <url><loc>https://mroorganico.github.io/mr-organico/blog.html</loc><priority>0.7</priority></url>
+  <url><loc>https://mroorganico.github.io/mr-organico/article.html?id=organic-vs-chemical</loc><priority>0.6</priority></url>
+  <url><loc>https://mroorganico.github.io/mr-organico/article.html?id=pipe-guide</loc><priority>0.6</priority></url>
+  <url><loc>https://mroorganico.github.io/mr-organico/article.html?id=storage-tips</loc><priority>0.6</priority></url>
+  <url><loc>https://mroorganico.github.io/mr-organico/contact.html</loc><priority>0.6</priority></url>
+  <url><loc>https://mroorganico.github.io/mr-organico/faq.html</loc><priority>0.5</priority></url>
+  <url><loc>https://mroorganico.github.io/mr-organico/cart.html</loc><priority>0.4</priority></url>
+</urlset>

@@ -142,6 +142,7 @@ function renderHeader(active){
     ['products.html', 'محصولات'],
     ['blog.html', 'مجله'],
     ['about.html', 'درباره ما'],
+    ['club.html', 'باشگاه مشتریان'],
     ['contact.html', 'تماس با ما'],
   ];
   document.getElementById('siteHeader').innerHTML = `

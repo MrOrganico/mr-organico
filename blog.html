@@ -1,13 +1,40 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>مجله تخصصی | Mr Organico</title>
-<link rel="preconnect" href="https://cdn.jsdelivr.net">
 <link rel="stylesheet" href="css/fonts.css">
-
 <link rel="stylesheet" href="css/styles.css">
+<style>
+  .blog-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  .post-card{
+    background:var(--surface); border:1px solid var(--line); border-radius:16px; overflow:hidden;
+    display:flex; flex-direction:column; transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+  }
+  .post-card:hover{ transform:translateY(-6px); box-shadow:0 18px 40px rgba(0,0,0,.35); border-color:var(--gold); }
+  .post-thumb{ aspect-ratio:4/3; overflow:hidden; }
+  .post-thumb img{ width:100%; height:100%; object-fit:cover; transition:transform .5s ease; }
+  .post-card:hover .post-thumb img{ transform:scale(1.05); }
+  .post-body{ padding:20px 22px 22px; display:flex; flex-direction:column; flex:1; }
+  .post-tags{ display:flex; flex-wrap:wrap; gap:7px; margin-bottom:14px; }
+  .post-tags a{
+    font-size:.72rem; font-weight:700; color:#eafff2; background:#1f7a4d; padding:5px 12px;
+    border-radius:8px; text-decoration:none; transition:.2s;
+  }
+  .post-tags a:hover{ background:var(--gold); color:#132b38; }
+  .post-body h3{ font-size:1.02rem; line-height:1.85; margin:0 0 10px; font-weight:800; }
+  .post-body h3 a{ color:var(--ink); text-decoration:none; }
+  .post-body h3 a:hover{ color:var(--gold-2); }
+  .post-body p{ font-size:.85rem; color:var(--ink-soft); line-height:2; margin:0; }
+  .post-body .more{ margin-top:auto; padding-top:16px; color:var(--gold); font-size:.86rem; font-weight:700; }
+  .post-card:hover .more{ color:var(--gold-2); }
+  .tagbar{ display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-top:6px; }
+  .tagbar a{ font-size:.78rem; color:var(--ink-soft); border:1px solid var(--line); padding:6px 14px; border-radius:99px; text-decoration:none; transition:.2s; }
+  .tagbar a:hover, .tagbar a.on{ background:var(--gold); color:#132b38; border-color:var(--gold); }
+  .blog-empty{ text-align:center; color:var(--ink-soft); padding:50px 0; grid-column:1/-1; }
+  @media(max-width:820px){ .blog-grid{ grid-template-columns:1fr; } }
+</style>
 </head>
 <body>
 
@@ -19,6 +46,7 @@
       <span class="kicker">مجله Mr Organico</span>
       <h2>دانش، همراه لذت</h2>
       <p>مقالات تخصصی درباره توتون ارگانیک، پیپ و هنر نگهداری — نوشته‌شده برای علاقه‌مندان واقعی.</p>
+      <div class="tagbar" id="tagbar" style="margin-top:18px"></div>
     </div>
     <div class="blog-grid" id="blogGrid"></div>
   </div>
@@ -34,16 +62,29 @@
   renderHeader('blog.html');
   renderFooter();
   ageGate();
-  document.getElementById('blogGrid').innerHTML = ARTICLES.map((a, i) => `
+
+  /* فیلتر با تگ (از URL یا کلیک روی تگ) */
+  const params = new URLSearchParams(location.search);
+  let activeTag = params.get('tag') || '';
+
+  const allTags = [...new Set(ARTICLES.flatMap(a => a.tags || []))];
+  document.getElementById('tagbar').innerHTML =
+    `<a href="blog.html" class="${!activeTag ? 'on' : ''}">همه مقالات</a>` +
+    allTags.map(t => `<a href="blog.html?tag=${encodeURIComponent(t)}" class="${t === activeTag ? 'on' : ''}">${t}</a>`).join('');
+
+  const list = activeTag ? ARTICLES.filter(a => (a.tags || []).includes(activeTag)) : ARTICLES;
+  document.getElementById('blogGrid').innerHTML = list.length ? list.map((a, i) => `
     <article class="post-card reveal" style="transition-delay:${i * 80}ms">
-      <div class="post-thumb"><img src="${a.img}" alt="${a.title}" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>
+      <a class="post-thumb" href="article.html?id=${a.id}"><img src="${a.img}" alt="${a.title}" loading="lazy"></a>
       <div class="post-body">
-        <div class="post-meta"><span class="cat">${a.cat}</span><span>${a.date}</span><span>${a.read} مطالعه</span></div>
+        <div class="post-tags">${(a.tags || []).map(t => `<a href="blog.html?tag=${encodeURIComponent(t)}">${t}</a>`).join('')}</div>
         <h3><a href="article.html?id=${a.id}">${a.title}</a></h3>
         <p>${a.excerpt}</p>
-        <span class="more">ادامه مطلب ←</span>
+        <a class="more" href="article.html?id=${a.id}">ادامه مطلب »</a>
       </div>
-    </article>`).join('');
+    </article>`).join('')
+    : `<div class="blog-empty">مقاله‌ای با این موضوع پیدا نشد 🌿 — <a href="blog.html" style="color:var(--gold)">نمایش همه مقالات</a></div>`;
+
   initReveal();
 </script>
 </body>

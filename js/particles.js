@@ -33,13 +33,15 @@ function initHeroParticles(canvas){
   const sizes     = new Float32Array(COUNT);
   const phases    = new Float32Array(COUNT);
 
-  /* پارامترهای رنگ هر ذره — چندرنگ و روان */
+  /* پارامترهای رنگ هر ذره — طیف کامل رنگینه‌کمان، تُن‌های روشن و نئونی */
   const hue   = new Float32Array(COUNT);   // رنگ پایه (۰ تا ۱)
-  const sat   = new Float32Array(COUNT);   // اشباع (۰ = سفید یخی)
+  const sat   = new Float32Array(COUNT);   // اشباع (۰ = سفید درخشان)
   const light = new Float32Array(COUNT);   // روشنایی پایه
   const drift = new Float32Array(COUNT);   // سرعت چرخش رنگ در زمان
 
-  const BASE_HUES = [0.00, 0.13, 0.38, 0.52, 0.58]; // قرمز، زرد، سبز، فیروزه‌ای، آبی
+  /* طیف کامل ۳۶۰ درجه: قرمز، نارنجی، زرد، زیتونی، سبز، فیروزه‌ای،
+     آبی، لاجوردی، بنفش، یاسی، صورتی — با فاصله یکنواخت */
+  const BASE_HUES = Array.from({ length: 24 }, (_, k) => k / 24);
 
   for(let i = 0; i < COUNT; i++){
     const r     = Math.pow(Math.random(), .6) * RADIUS;
@@ -51,14 +53,18 @@ function initHeroParticles(canvas){
     positions.set([x, y, z], i * 3);
     base.set([x, y, z], i * 3);
 
-    if(Math.random() < .28){          /* اقلیت: سفیدهای یخی بدون اشباع */
+    if(Math.random() < .20){          /* اقلیت: جرقه‌های سفید الماسی (نور خالص) */
       sat[i] = 0;
       hue[i] = .55;
+      light[i] = .95;
     } else {
-      sat[i] = .68 + Math.random() * .3;
-      hue[i] = BASE_HUES[(Math.random() * BASE_HUES.length) | 0] + (Math.random() - .5) * .05;
+      /* اشباع کامل تا نئونی — رنگ باید «رنگ» دیده شود نه سفید */
+      sat[i] = .86 + Math.random() * .14;
+      /* انتخاب یکنواخت از کل طیف ۳۶۰ درجه + جزئی اعوجاج برای تنوع */
+      hue[i] = BASE_HUES[(Math.random() * BASE_HUES.length) | 0] + (Math.random() - .5) * .03;
+      /* تُن روشن اما با بقای رنگ (۵۸٪ تا ۷۲٪) — بالاتر از این سفید دیده می‌شود */
+      light[i] = .58 + Math.random() * .14;
     }
-    light[i] = .68 + Math.random() * .22;
     drift[i] = (.012 + Math.random() * .045) * (Math.random() < .5 ? -1 : 1);
 
     sizes[i]  = (i % 23 === 0 ? 3.4 : 0) + 1.1 + Math.random() * 1.9; // هر ۲۳ گره یه نور درشت‌تر
@@ -205,7 +211,7 @@ function initHeroParticles(canvas){
           nx += (dx / dist) * f * PUSH;   /* گریز از موس */
           ny += (dy / dist) * f * PUSH;
           shift = f * .3;                  /* پرش رنگی کنار موس */
-          boost = f * .3;                  /* روشن‌تر شدن */
+          boost = f * .16;                 /* روشن‌تر شدن (ملایم تا سفید نشود) */
         }
       }
       let h = (hue[i] + time * drift[i] + shift) % 1;
@@ -219,7 +225,7 @@ function initHeroParticles(canvas){
     geo.getAttribute('color').needsUpdate = true;
 
     /* هم‌گام‌سازی خطوط و رنگ‌شان با گره‌ها */
-    const la = lineAttr.array, lc = lineCol.array;
+    const la = lineAttr.array, lc = lineColAttr.array;
     for(let k = 0; k < pairs.length; k++){
       const pi = pairs[k] * 3;
       la[k*3]   = arr[pi];

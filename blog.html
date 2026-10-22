@@ -4,6 +4,28 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>مجله تخصصی | Mr Organico</title>
+<meta name="description" content="مجله تخصصی Mr Organico؛ راهنمای خرید و انتخاب توتون ارگانیک، برگ طبیعی، پیپ دست‌ساز، استرهکوتین (structuring) و نکات سلامت — به زبان فارسی و انگلیسی.">
+<link rel="canonical" href="https://mrorganico.github.io/mr-organico/blog.html">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="images/favicon-512.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<meta name="keywords" content="توتون ارگانیک, برگ توتون طبیعی, organic tobacco, توتون خالص, Mr Organico, میستر ارگانیک, خرید توتون, پیپ دست‌ساز, مجله توتون, مقاله توتون, استرهکوتین, structuring, راهنمای خرید توتون, blog">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mr Organico">
+<meta property="og:locale" content="fa_IR">
+<meta property="og:title" content="مجله تخصصی | Mr Organico">
+<meta property="og:description" content="مجله تخصصی Mr Organico؛ راهنمای خرید و انتخاب توتون ارگانیک، برگ طبیعی، پیپ دست‌ساز، استرهکوتین (structuring) و نکات سلامت — به زبان فارسی و انگلیسی.">
+<meta property="og:url" content="https://mrorganico.github.io/mr-organico/blog.html">
+<meta property="og:image" content="https://mrorganico.github.io/mr-organico/images/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Mr Organico — لوگوی رسمی برند">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="مجله تخصصی | Mr Organico">
+<meta name="twitter:description" content="مجله تخصصی Mr Organico؛ راهنمای خرید و انتخاب توتون ارگانیک، برگ طبیعی، پیپ دست‌ساز، استرهکوتین (structuring) و نکات سلامت — به زبان فارسی و انگلیسی.">
+<meta name="twitter:image" content="https://mrorganico.github.io/mr-organico/images/og-image.jpg">
 <link rel="stylesheet" href="css/fonts.css">
 <link rel="stylesheet" href="css/styles.css">
 <style>
@@ -26,6 +48,7 @@
   .post-body h3{ font-size:1.02rem; line-height:1.85; margin:0 0 10px; font-weight:800; }
   .post-body h3 a{ color:var(--ink); text-decoration:none; }
   .post-body h3 a:hover{ color:var(--gold-2); }
+  .post-en{ font-size:.76rem; color:var(--gold-2); opacity:.85; margin:0 0 8px; line-height:1.5; }
   .post-body p{ font-size:.85rem; color:var(--ink-soft); line-height:2; margin:0; }
   .post-body .more{ margin-top:auto; padding-top:16px; color:var(--gold); font-size:.86rem; font-weight:700; }
   .post-card:hover .more{ color:var(--gold-2); }
@@ -39,6 +62,7 @@
 <body>
 
 <div id="siteHeader"></div>
+<main id="mainContent">
 
 <section class="section" style="padding-top:44px">
   <div class="container">
@@ -52,6 +76,7 @@
   </div>
 </section>
 
+</main>
 <div id="siteFooter"></div>
 
 <script src="js/products.js"></script>
@@ -79,11 +104,55 @@
       <div class="post-body">
         <div class="post-tags">${(a.tags || []).map(t => `<a href="blog.html?tag=${encodeURIComponent(t)}">${t}</a>`).join('')}</div>
         <h3><a href="article.html?id=${a.id}">${a.title}</a></h3>
+        ${a.enTitle ? `<p class="post-en" lang="en" dir="ltr">${a.enTitle}</p>` : ''}
         <p>${a.excerpt}</p>
         <a class="more" href="article.html?id=${a.id}">ادامه مطلب »</a>
       </div>
     </article>`).join('')
     : `<div class="blog-empty">مقاله‌ای با این موضوع پیدا نشد 🌿 — <a href="blog.html" style="color:var(--gold)">نمایش همه مقالات</a></div>`;
+
+  /* ═══ داده ساخت‌یافته Blog + ItemList برای ایندکس بهتر مقالات ═══ */
+  (function injectBlogSchema(){
+    const BASE = 'https://mrorganico.github.io/mr-organico/';
+    const ISO = {
+      'organic-vs-chemical':'2025-10-01','pipe-guide':'2025-09-18','storage-tips':'2025-08-09',
+      'structuring-tobacco':'2025-10-11','additive-free-tobacco':'2025-10-07',
+      'tobacco-curing-fermentation':'2025-10-04','nicotine-levels-guide':'2025-09-30',
+      'hand-rolling-guide':'2025-09-26','organic-tobacco-health':'2025-09-22'
+    };
+    const clean = s => String(s).replace(/[<>&"]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'}[c]));
+    const all = ARTICLES.map((a, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      url: BASE + 'article.html?id=' + encodeURIComponent(a.id),
+      name: clean(a.title) + (a.enTitle ? ' — ' + clean(a.enTitle) : '')
+    }));
+    const blog = {
+      '@context': 'https://schema.org',
+      '@type': 'Blog',
+      '@id': BASE + 'blog.html#blog',
+      url: BASE + 'blog.html',
+      name: 'مجله تخصصی Mr Organico | Mr Organico Blog',
+      description: 'مقالات تخصصی فارسی و انگلیسی درباره توتون ارگانیک، استرهکوتین (structuring)، پیپ و نگهداری.',
+      inLanguage: ['fa', 'en'],
+      blogPost: ARTICLES.map(a => ({
+        '@type': 'BlogPosting',
+        headline: clean(a.title),
+        alternateHeadline: a.enTitle ? clean(a.enTitle) : undefined,
+        url: BASE + 'article.html?id=' + encodeURIComponent(a.id),
+        image: BASE + a.img,
+        datePublished: ISO[a.id] || '2025-01-01',
+        keywords: (a.tags || []).join(', '),
+        inLanguage: 'fa',
+        articleSection: clean(a.cat)
+      })),
+      mainEntity: { '@type': 'ItemList', numberOfItems: ARTICLES.length, itemListElement: all }
+    };
+    const s = document.createElement('script');
+    s.type = 'application/ld+json';
+    s.textContent = JSON.stringify(blog, (k, v) => v === undefined ? undefined : v);
+    document.head.appendChild(s);
+  })();
 
   initReveal();
 </script>

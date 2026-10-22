@@ -150,8 +150,8 @@ function renderHeader(active){
     <header class="site">
       <div class="container nav">
         <a class="logo" href="index.html">
-          <span class="logo-mark">
-            <img src="images/logo-96.webp" alt="آرم Mr Organico">
+          <span class="logo-mark orb-mark">
+            <img src="images/logo-512.webp" alt="آرم دایره‌ای Mr Organico">
           </span>
           <span class="logo-text"><strong>Mr Organico</strong><span>ارگانیک • اصیل • خالص</span></span>
         </a>
@@ -194,7 +194,7 @@ function renderFooter(){
         <div class="footer-grid">
           <div class="footer-about">
             <a class="logo" href="index.html">
-              <span class="logo-mark"><img src="images/logo-96.webp" alt="آرم Mr Organico"></span>
+              <span class="logo-mark orb-mark"><img src="images/logo-512.webp" alt="آرم دایره‌ای Mr Organico"></span>
               <span class="logo-text"><strong>Mr Organico</strong><span>ارگانیک • اصیل • خالص</span></span>
             </a>
             <p>مرجع تخصصی توتون ارگانیک، برگ طبیعی و پیپ دست‌ساز — بدون هیچ افزودنی و ماده شیمیایی. از مزرعه تا بسته‌بندی، تحت نظارت کامل.</p>
@@ -220,7 +220,6 @@ function renderFooter(){
               <li><a href="terms.html">قوانین و مقررات</a></li>
               <li><a href="returns.html">رویه بازگشت کالا</a></li>
               <li><a href="privacy.html">حریم خصوصی</a></li>
-              <li><a href="admin.html">ثبت و مدیریت محصولات</a></li>
             </ul>
           </div>
           <div>
@@ -247,6 +246,44 @@ function renderFooter(){
         </div>
       </div>
     </footer>`;
+
+  /* ───────────────────────────────────────────────────────────
+     دسترسی مخفی مدیر به پنل مدیریت
+     ───────────────────────────────────────────────────────────
+     روی «لوگوی فوتر» سه‌بار پشت‌سرهم (ظرف ۱.۲ ثانیه) کلیک کن
+      تا وارد پنل مدیریت شوی — نام فایل پنل عمداً تصادفی و غیرقابل‌حدس است،
+
+     💡 برای تغییر روش ورود، مقادیر زیر را عوض کن:
+        SECRET_KEY  : کلید میان‌بر صفحه‌کلید (پیش‌فرض 'F2' — یکی از کلیدها)
+        CLICKS      : تعداد کلیک لازم روی لوگوی فوتر
+        WINDOW_MS   : بازه زمانی (میلی‌ثانیه) برای شمردن کلیک‌ها
+     ─────────────────────────────────────────────────────────── */
+  const SECRET_KEY  = 'F2';
+  const CLICKS      = 3;
+  const WINDOW_MS   = 1200;
+  const ADMIN_PAGE  = 'p-bbc8cac5929869a9.html';
+
+  (function secretAdminAccess(){
+    let hits = 0, timer = null;
+
+    function go(){ location.href = ADMIN_PAGE; }
+
+    /* روش ۱: سه کلیک روی لوگوی فوتر */
+    const footLogo = document.querySelector('#siteFooter .logo-mark');
+    if(footLogo){
+      footLogo.addEventListener('click', () => {
+        hits++;
+        clearTimeout(timer);
+        if(hits >= CLICKS){ hits = 0; go(); return; }
+        timer = setTimeout(() => { hits = 0; }, WINDOW_MS);
+      });
+    }
+
+    /* روش ۲: کلید میان‌بر صفحه‌کلید (پیش‌فرض F2) */
+    document.addEventListener('keydown', e => {
+      if(e.key === SECRET_KEY && !e.ctrlKey && !e.altKey && !e.metaKey) go();
+    });
+  })();
 }
 
 /* ---------- هشدار سن ---------- */

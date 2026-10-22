@@ -1,10 +1,31 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>سوالات متداول | Mr Organico</title>
 <meta name="description" content="پاسخ پرسش‌های متداول درباره خرید توتون ارگانیک و پیپ از Mr Organico — ارسال، پرداخت، اصالت کالا، بازگشت و مشاوره.">
+<link rel="canonical" href="https://mrorganico.github.io/mr-organico/faq.html">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="images/favicon-512.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<meta name="keywords" content="توتون ارگانیک, برگ توتون طبیعی, organic tobacco, توتون خالص, Mr Organico, میستر ارگانیک, خرید توتون, پیپ دست‌ساز, سوالات متداول, پرسش و پاسخ, شرایط ارسال, FAQ">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mr Organico">
+<meta property="og:locale" content="fa_IR">
+<meta property="og:title" content="سوالات متداول | Mr Organico">
+<meta property="og:description" content="پاسخ پرسش‌های متداول درباره خرید توتون ارگانیک و پیپ از Mr Organico — ارسال، پرداخت، اصالت کالا، بازگشت و مشاوره.">
+<meta property="og:url" content="https://mrorganico.github.io/mr-organico/faq.html">
+<meta property="og:image" content="https://mrorganico.github.io/mr-organico/images/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Mr Organico — لوگوی رسمی برند">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="سوالات متداول | Mr Organico">
+<meta name="twitter:description" content="پاسخ پرسش‌های متداول درباره خرید توتون ارگانیک و پیپ از Mr Organico — ارسال، پرداخت، اصالت کالا، بازگشت و مشاوره.">
+<meta name="twitter:image" content="https://mrorganico.github.io/mr-organico/images/og-image.jpg">
 <link rel="stylesheet" href="css/fonts.css">
 
 <link rel="stylesheet" href="css/styles.css">
@@ -12,6 +33,7 @@
 <body>
 
 <div id="siteHeader"></div>
+<main id="mainContent">
 
 <section class="section" style="padding-top:44px">
   <div class="container">
@@ -32,6 +54,7 @@
   </div>
 </section>
 
+</main>
 <div id="siteFooter"></div>
 
 <script src="js/products.js"></script>
@@ -71,6 +94,24 @@
       <button class="faq-q">${q}<span class="fi">+</span></button>
       <div class="faq-a"><div class="faq-a-inner">${a}</div></div>
     </div>`).join('');
+
+  /* ═══ داده ساخت‌یافته FAQPage برای نمایش غنی در نتایج گوگل ═══ */
+  (function injectFAQSchema(){
+    const clean = s => s.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
+    const ld = {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: FAQS.map(([q, a]) => ({
+        '@type': 'Question',
+        name: clean(q),
+        acceptedAnswer: { '@type': 'Answer', text: clean(a) }
+      }))
+    };
+    const s = document.createElement('script');
+    s.type = 'application/ld+json';
+    s.textContent = JSON.stringify(ld);
+    document.head.appendChild(s);
+  })();
 
   document.querySelectorAll('.faq-item').forEach(item => {
     item.querySelector('.faq-q').onclick = () => {

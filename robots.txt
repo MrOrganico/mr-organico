@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
+Disallow: /admin.html
 
-Sitemap: https://mroorganico.github.io/mr-organico/sitemap.xml
+# --- موتورهای جستجو مجاز به ایندکس صفحات عمومی هستند ---
+# صفحه مدیریت (admin.html) به هیچ عنوان ایندکس نشود.
+
+Sitemap: https://mrorganico.github.io/mr-organico/sitemap.xml

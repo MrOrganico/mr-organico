@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مدیریت محصولات | Mr Organico</title>
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="description" content="پنل مدیریت محصولات Mr Organico — دسترسی ویژه مدیر.">
+<link rel="stylesheet" href="css/fonts.css">
+
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div id="siteHeader"></div>
+<main id="mainContent">
+
+<section class="section" style="padding-top:44px">
+  <div class="container">
+
+    <!-- ═══════════ گیت ورود (فقط برای مدیر) ═══════════ -->
+    <div class="adm-gate" id="admGate">
+      <div class="adm-gate-box">
+        <div class="adm-lock-ico">🔐</div>
+        <span class="kicker">دسترسی ویژه مدیر</span>
+        <h2>پنل مدیریت Mr Organico</h2>
+        <p class="adm-gate-sub">این بخش برای بازدیدکنندگان عادی قفل است. برای ورود، رمز عبور مدیر را وارد کنید.</p>
+
+        <div class="field">
+          <label for="admPw">رمز عبور</label>
+          <div class="pw-row">
+            <input type="password" id="admPw" placeholder="رمز عبور را وارد کنید" autocomplete="current-password">
+            <button type="button" class="pw-toggle" id="pwToggle" aria-label="نمایش رمز">👁️</button>
+          </div>
+        </div>
+
+        <button class="btn btn-gold btn-block" id="btnLogin">ورود به پنل</button>
+        <div class="adm-gate-msg" id="gateMsg" role="alert"></div>
+
+        <p class="adm-gate-hint">امنیت: هش PBKDF2 (۱۵۰هزار تکرار) + قفل ۱ دقیقه‌ای پس از ۵ تلاش ناموفق.</p>
+      </div>
+    </div>
+
+    <!-- ═══════════ محتوای پنل (پس از ورود) ═══════════ -->
+    <div id="admPanel" style="display:none">
+    <div class="section-head">
+      <span class="kicker">پنل مدیریت</span>
+      <h2>ثبت و مدیریت محصولات</h2>
+      <p>محصول جدید ثبت کن، قیمت و موجودی را به‌روز کن یا محصول را حذف کن — بدون نیاز به کدنویسی.</p>
+    </div>
+
+    <div class="adm-stats" id="admStats"></div>
+
+    <div class="adm-toolbar">
+      <button class="btn btn-gold" id="btnNew">＋ ثبت محصول جدید</button>
+      <button class="btn btn-ghost" id="btnExport">⬇️ خروجی JSON تغییرات</button>
+      <button class="btn btn-ghost" id="btnReset">♻️ بازنشانی تغییرات</button>
+      <button class="btn btn-ghost" id="btnChgPw">🔑 تغییر رمز عبور</button>
+      <button class="btn btn-ghost" id="btnLock">🔒 قفل پنل</button>
+    </div>
+
+    <!-- فرم تغییر رمز -->
+    <div class="cart-box" id="chgBox" style="display:none;margin-top:18px">
+      <h4 style="margin-bottom:14px">🔑 تغییر رمز عبور پنل</h4>
+      <div class="field"><label>رمز عبور فعلی *</label>
+        <input type="password" id="pwOld" autocomplete="current-password" placeholder="رمز فعلی"></div>
+      <div class="field"><label>رمز عبور جدید * (حداقل ۸ کاراکتر)</label>
+        <input type="password" id="pwNew" autocomplete="new-password" placeholder="رمز جدید"></div>
+      <div class="field"><label>تکرار رمز جدید *</label>
+        <input type="password" id="pwNew2" autocomplete="new-password" placeholder="تکرار رمز جدید"></div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <button class="btn btn-gold" id="btnSavePw">ذخیره رمز جدید</button>
+        <button class="btn btn-ghost" id="btnCancelPw">انصراف</button>
+      </div>
+      <div class="adm-gate-msg" id="chgMsg"></div>
+    </div>
+
+    <div class="cart-box" style="overflow-x:auto">
+      <table class="adm-table" id="admTable"></table>
+    </div>
+
+    <!-- فرم ثبت/ویرایش -->
+    <div class="adm-form" id="admForm" style="display:none">
+      <h3 id="formTitle">ثبت محصول جدید</h3>
+      <div class="form-grid">
+        <label>نام محصول *
+          <input id="fName" placeholder="مثلاً توتون ویرجینیای طلایی">
+        </label>
+        <label>دسته‌بندی *
+          <select id="fCat">
+            <option value="tobacco">توتون و برگ ارگانیک</option>
+            <option value="tube">پوکه و فیلتر</option>
+            <option value="accessory">پیپ و ادوات</option>
+          </select>
+        </label>
+        <label>قیمت (تومان) *
+          <input id="fPrice" type="number" min="0" placeholder="4500000">
+        </label>
+        <label>قیمت قبل از تخفیف (اختیاری)
+          <input id="fOldPrice" type="number" min="0" placeholder="5000000">
+        </label>
+        <label>واحد فروش
+          <input id="fUnit" placeholder="بسته ۲۰۰ عددی / عدد / ۱۰۰ گرم">
+        </label>
+        <label>وزن بسته (برای توتون)
+          <input id="fWeight" placeholder="۱۰۰ گرم">
+        </label>
+        <label>خاستگاه
+          <input id="fOrigin" placeholder="ترکیه / کوبا / ایران...">
+        </label>
+        <label>برچسب ویژه
+          <input id="fBadge" placeholder="جدید / پرفروش / پیشنهاد ویژه">
+        </label>
+        <label class="full">مسیر عکس (اختیاری)
+          <input id="fImg" placeholder="images/my-photo.jpg">
+        </label>
+        <label class="full">توضیحات
+          <textarea id="fDesc" placeholder="توضیح کوتاه و جذاب درباره محصول..."></textarea>
+        </label>
+        <div class="full stock-row" style="padding-top:0">
+          <input type="checkbox" id="fStock" checked>
+          <label for="fStock" style="display:inline;font-size:.88rem;color:var(--ink)">موجود در انبار است</label>
+        </div>
+      </div>
+      <div style="display:flex;gap:12px;margin-top:22px;flex-wrap:wrap">
+        <button class="btn btn-gold" id="btnSave">💾 ذخیره محصول</button>
+        <button class="btn btn-ghost" id="btnCancel">انصراف</button>
+        <span id="editId" style="display:none"></span>
+      </div>
+    </div>
+
+    <!-- ورود JSON -->
+    <div class="cart-box" style="margin-top:24px">
+      <h4 style="margin-bottom:8px">📥 ورود تغییرات از JSON</h4>
+      <p style="font-size:.8rem;color:var(--ink-soft)">خروجی گرفته‌شده از این پنل (یا فایل داده جدید) را اینجا بچسبان و اعمال کن:</p>
+      <textarea class="adm-import" id="importBox" placeholder='[{"id":"t01","price":4800000}, ...]'></textarea>
+      <button class="btn btn-ghost" id="btnImport" style="margin-top:12px">اعمال JSON</button>
+    </div>
+
+    <div class="adm-note">
+      <b>چطور کار می‌کند؟</b> تغییرات این پنل در <b>حافظه همین مرورگر</b> ذخیره می‌شود و بلافاصله
+      روی همه صفحات سایت (در همین مرورگر) اعمال می‌شود. برای انتقال به نسخه اصلی سایت
+      (فایل <b>js/products.js</b>)، از دکمه «خروجی JSON» استفاده کن و فایل را برای من بفرست تا
+      در کد نهایی ادغمش کنم — یا خودت داده‌ها را جایگزین کن.
+    </div>
+    </div><!-- /admPanel -->
+
+  </div>
+</section>
+
+</main>
+<div id="siteFooter"></div>
+
+<script src="js/products.js"></script>
+<script src="js/articles.js"></script>
+<script src="js/app.js"></script>
+<script src="js/shop.js"></script>
+<script src="js/admin-auth.js"></script>
+<script>
+  renderHeader('');
+  renderFooter();
+  ageGate();
+
+  /* ═══════════ کنترل گیت ورود ═══════════ */
+  const gate    = document.getElementById('admGate');
+  const panel   = document.getElementById('admPanel');
+  const gateMsg = document.getElementById('gateMsg');
+  const pwInp   = document.getElementById('admPw');
+  const btnLogin= document.getElementById('btnLogin');
+  let lockTimer = null;
+
+  const fmtMs = ms => {
+    const s = Math.ceil(ms / 1000);
+    return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0');
+  };
+
+  function setMsg(el, text, type){
+    el.textContent = text || '';
+    el.className = (el === gateMsg ? 'adm-gate-msg' : 'adm-gate-msg') + (text ? ' ' + (type || 'err') : '');
+  }
+
+  function showPanel(){
+    gate.style.display = 'none';
+    panel.style.display = 'block';
+    initPanel();
+  }
+
+  function tickLock(){
+    const left = AdminAuth.remainingLock();
+    if(left > 0){
+      setMsg(gateMsg, 'تلاش‌های ناموفق زیاد — ورود مسدود شد. ' + fmtMs(left) + ' دیگر دوباره امتحان کنید.', 'lock');
+      btnLogin.disabled = true;
+      pwInp.disabled = true;
+    } else {
+      if(btnLogin.disabled){
+        setMsg(gateMsg, '', '');
+        btnLogin.disabled = false; pwInp.disabled = false; pwInp.focus();
+      }
+      if(lockTimer){ clearInterval(lockTimer); lockTimer = null; }
+    }
+  }
+
+  function showGate(){
+    panel.style.display = 'none';
+    gate.style.display = 'block';
+    tickLock();
+    if(AdminAuth.remainingLock() > 0 && !lockTimer) lockTimer = setInterval(tickLock, 500);
+    pwInp.focus();
+  }
+
+  async function doLogin(){
+    const pw = pwInp.value;
+    if(!pw){ setMsg(gateMsg, 'رمز عبور را وارد کنید.'); return; }
+    btnLogin.disabled = true;
+    const label = btnLogin.textContent;
+    btnLogin.textContent = 'در حال بررسی…';
+    const res = await AdminAuth.unlock(pw);
+    btnLogin.textContent = label;
+    btnLogin.disabled = false;
+    if(res.ok){
+      setMsg(gateMsg, '✓ ورود موفق', 'ok');
+      pwInp.value = '';
+      setTimeout(showPanel, 350);
+    } else {
+      pwInp.value = '';
+      if(res.wait > 0){
+        setMsg(gateMsg, 'رمز نادرست — ورود برای ' + fmtMs(res.wait) + ' ثانیه مسدود شد.', 'lock');
+        if(!lockTimer) lockTimer = setInterval(tickLock, 500);
+        tickLock();
+      } else {
+        const left = res.left ? (AdminAuth.MAX_FAIL - (res.left.fails || 0)) : 0;
+        setMsg(gateMsg, 'رمز نادرست.' + (left > 0 ? ' (' + left.toLocaleString('fa-IR') + ' تلاش باقی مانده)' : ''));
+        pwInp.focus();
+      }
+    }
+  }
+
+  btnLogin.onclick = doLogin;
+  pwInp.onkeydown  = e => { if(e.key === 'Enter') doLogin(); };
+  document.getElementById('pwToggle').onclick = () => {
+    pwInp.type = pwInp.type === 'password' ? 'text' : 'password';
+    pwInp.focus();
+  };
+
+  /* ═══════════ منطق پنل (فقط پس از ورود) ═══════════ */
+  let panelReady = false;
+
+  function initPanel(){
+    if(panelReady) return;
+    panelReady = true;
+
+    const KEY = 'mo_products';
+    const readOv = () => { try{ return JSON.parse(localStorage.getItem(KEY) || '[]'); }catch{ return []; } };
+    const writeOv = arr => localStorage.setItem(KEY, JSON.stringify(arr));
+
+    /* اعمال دوباره override ها روی PRODUCTS (بدون رفرش صفحه) */
+    function reapply(){
+      readOv().forEach(o => {
+        if(!o || !o.id) return;
+        const i = PRODUCTS.findIndex(p => p.id === o.id);
+        if(o.deleted){ if(i > -1) PRODUCTS.splice(i, 1); }
+        else if(i > -1) PRODUCTS[i] = Object.assign({}, PRODUCTS[i], o);
+        else PRODUCTS.push(o);
+      });
+    }
+
+    /* قیمت نمایشی: اول price، سپس کیلویی، سپس کمترین وزن */
+    const showPrice = p => PRICE_FMT(p.price || p.kiloPrice || 0);
+
+    function stats(){
+      const oos = PRODUCTS.filter(p => p.stock === false).length;
+      document.getElementById('admStats').innerHTML = `
+        <div class="adm-stat"><b>${PRODUCTS.length.toLocaleString('fa-IR')}</b><span>کل محصولات فعال</span></div>
+        <div class="adm-stat"><b>${oos.toLocaleString('fa-IR')}</b><span>ناموجود</span></div>
+        <div class="adm-stat"><b>${readOv().length.toLocaleString('fa-IR')}</b><span>تغییر ثبت‌شده (override)</span></div>`;
+    }
+
+    function renderTable(){
+      stats();
+      const tb = document.getElementById('admTable');
+      tb.innerHTML = `
+        <tr><th>عکس</th><th>نام</th><th>دسته</th><th>قیمت (تومان)</th><th>موجودی</th><th>عملیات</th></tr>
+        ${PRODUCTS.map(p => `
+          <tr>
+            <td><div class="adm-thumb">${p.img ? `<img src="${p.img}" alt="">` : placeholderSVG(p.cat, (CATEGORIES[p.cat]||{}).icon)}</div></td>
+            <td class="tn">${p.name}</td>
+            <td>${(CATEGORIES[p.cat] || {}).name || p.cat}</td>
+            <td>${showPrice(p)}${p.kiloPrice && !p.price ? '<small style="color:var(--ink-soft)"> (کیلویی)</small>' : ''}</td>
+            <td>${p.stock === false ? '<span style="color:var(--danger)">ناموجود</span>' : '<span style="color:var(--leaf-2)">موجود</span>'}</td>
+            <td><div class="adm-act">
+              <button class="adm-btn" data-edit="${p.id}">ویرایش</button>
+              <button class="adm-btn del" data-del="${p.id}">حذف</button>
+            </div></td>
+          </tr>`).join('')}`;
+
+      tb.querySelectorAll('[data-edit]').forEach(b => b.onclick = () => openForm(b.dataset.edit));
+      tb.querySelectorAll('[data-del]').forEach(b => b.onclick = () => {
+        if(!confirm('این محصول از نمایش سایت حذف شود؟ (قابل بازگشت با «بازنشانی تغییرات»)')) return;
+        const ov = readOv();
+        const ex = ov.find(x => x.id === b.dataset.del);
+        if(ex) ex.deleted = true; else ov.push({ id: b.dataset.del, deleted:true });
+        writeOv(ov);
+        PRODUCTS.length = 0;
+        toast('محصول حذف شد');
+        location.reload();
+      });
+    }
+
+    function openForm(id){
+      const f = document.getElementById('admForm');
+      const p = id ? PRODUCTS.find(x => x.id === id) : null;
+      document.getElementById('formTitle').textContent = p ? `ویرایش: ${p.name}` : 'ثبت محصول جدید';
+      document.getElementById('editId').textContent = p ? p.id : '';
+      document.getElementById('fName').value    = p ? p.name : '';
+      document.getElementById('fCat').value     = p ? p.cat : 'tobacco';
+      document.getElementById('fPrice').value   = p ? (p.price || '') : '';
+      document.getElementById('fOldPrice').value= p && p.oldPrice ? p.oldPrice : '';
+      document.getElementById('fUnit').value    = p ? (p.unit || '') : '';
+      document.getElementById('fWeight').value  = p ? (p.weight || '') : '';
+      document.getElementById('fOrigin').value  = p ? (p.origin || '') : '';
+      document.getElementById('fBadge').value   = p ? (p.badge || '') : '';
+      document.getElementById('fImg').value     = p ? (p.img || '') : '';
+      document.getElementById('fDesc').value    = p ? (p.desc || '') : '';
+      document.getElementById('fStock').checked = p ? p.stock !== false : true;
+      f.style.display = 'block';
+      f.scrollIntoView({ behavior:'smooth', block:'start' });
+    }
+
+    document.getElementById('btnNew').onclick   = () => openForm(null);
+    document.getElementById('btnCancel').onclick = () => document.getElementById('admForm').style.display = 'none';
+
+    document.getElementById('btnSave').onclick = () => {
+      const name = document.getElementById('fName').value.trim();
+      const price = +document.getElementById('fPrice').value;
+      if(!name || !price){ toast('نام و قیمت محصول الزامی است'); return; }
+      const rec = {
+        id:   document.getElementById('editId').textContent || ('m' + Date.now().toString(36)),
+        name, price,
+        cat:      document.getElementById('fCat').value,
+        oldPrice: +document.getElementById('fOldPrice').value || null,
+        unit:     document.getElementById('fUnit').value.trim() || undefined,
+        weight:   document.getElementById('fWeight').value.trim() || undefined,
+        origin:   document.getElementById('fOrigin').value.trim() || undefined,
+        badge:    document.getElementById('fBadge').value.trim() || undefined,
+        img:      document.getElementById('fImg').value.trim() || undefined,
+        desc:     document.getElementById('fDesc').value.trim() || 'توضیحات این محصول به‌زودی تکمیل می‌شود.',
+        stock:    document.getElementById('fStock').checked,
+      };
+      const ov = readOv();
+      const i = ov.findIndex(x => x.id === rec.id);
+      if(i > -1) ov[i] = Object.assign({}, ov[i], rec); else ov.push(rec);
+      writeOv(ov);
+      toast('ذخیره شد ✅ — روی کل سایت اعمال شد');
+      setTimeout(() => location.reload(), 700);
+    };
+
+    document.getElementById('btnExport').onclick = () => {
+      const blob = new Blob([JSON.stringify(readOv(), null, 2)], { type:'application/json' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'mr-organico-products.json';
+      a.click();
+      URL.revokeObjectURL(a.href);
+    };
+
+    document.getElementById('btnImport').onclick = () => {
+      try{
+        const arr = JSON.parse(document.getElementById('importBox').value);
+        if(!Array.isArray(arr)) throw 0;
+        writeOv(arr);
+        toast('JSON اعمال شد ✅');
+        setTimeout(() => location.reload(), 700);
+      }catch{ toast('فرمت JSON نامعتبر است'); }
+    };
+
+    document.getElementById('btnReset').onclick = () => {
+      if(!confirm('همه تغییرات پنل حذف شود و به داده اصلی برگردیم؟')) return;
+      localStorage.removeItem(KEY);
+      location.reload();
+    };
+
+    /* ---------- تغییر رمز عبور ---------- */
+    const chgBox = document.getElementById('chgBox');
+    const chgMsg = document.getElementById('chgMsg');
+    document.getElementById('btnChgPw').onclick = () => {
+      const open = chgBox.style.display !== 'none';
+      chgBox.style.display = open ? 'none' : 'block';
+      if(!open){ document.getElementById('pwOld').focus(); setMsg(chgMsg, ''); }
+    };
+    document.getElementById('btnCancelPw').onclick = () => { chgBox.style.display = 'none'; };
+    document.getElementById('btnSavePw').onclick = async () => {
+      const o = document.getElementById('pwOld').value;
+      const n = document.getElementById('pwNew').value;
+      const n2= document.getElementById('pwNew2').value;
+      if(!o || !n){ setMsg(chgMsg, 'همه فیلدها الزامی است.'); return; }
+      if(n !== n2){ setMsg(chgMsg, 'تکرار رمز جدید مطابقت ندارد.'); return; }
+      const btn = document.getElementById('btnSavePw');
+      btn.disabled = true; const lab = btn.textContent; btn.textContent = 'در حال محاسبه…';
+      const r = await AdminAuth.changePassword(o, n);
+      btn.disabled = false; btn.textContent = lab;
+      setMsg(chgMsg, r.msg, r.ok ? 'ok' : 'err');
+      if(r.ok){
+        document.getElementById('pwOld').value = '';
+        document.getElementById('pwNew').value = '';
+        document.getElementById('pwNew2').value = '';
+        setTimeout(() => { chgBox.style.display = 'none'; }, 1200);
+      }
+    };
+
+    /* ---------- قفل دستی ---------- */
+    document.getElementById('btnLock').onclick = () => {
+      AdminAuth.endSession();
+      location.reload();
+    };
+
+    reapply();
+    renderTable();
+    initReveal();
+  }
+
+  /* ---------- تصمیم نهایی ---------- */
+  if(AdminAuth.isUnlocked()) showPanel(); else showGate();
+</script>
+</body>
+</html>

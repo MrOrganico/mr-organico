@@ -100,11 +100,13 @@ function initShop(){
       const q = state.q.trim();
       list = list.filter(p => p.name.includes(q) || (p.desc || '').includes(q));
     }
-    if(state.sort === 'cheap')  list = [...list].sort((a, b) => a.price - b.price);
-    if(state.sort === 'expensive') list = [...list].sort((a, b) => b.price - a.price);
+    /* قیمت مبنا برای مرتب‌سازی: اول price، وگرنه قیمت کیلویی (۲۵ محصول فقط kiloPrice دارند) */
+    const basePrice = p => p.price || kiloOf(p) || 0;
+    if(state.sort === 'cheap')  list = [...list].sort((a, b) => basePrice(a) - basePrice(b));
+    if(state.sort === 'expensive') list = [...list].sort((a, b) => basePrice(b) - basePrice(a));
     if(state.sort === 'off') list = [...list].sort((a, b) => {
-      const ra = a.oldPrice ? 1 - a.price / a.oldPrice : 0;
-      const rb = b.oldPrice ? 1 - b.price / b.oldPrice : 0;
+      const ra = a.oldPrice && basePrice(a) ? 1 - basePrice(a) / a.oldPrice : 0;
+      const rb = b.oldPrice && basePrice(b) ? 1 - basePrice(b) / b.oldPrice : 0;
       return rb - ra;
     });
     found.textContent = `${list.length.toLocaleString('fa-IR')} محصول یافت شد`;
@@ -141,12 +143,99 @@ function productReviews(p){
   return { base, mine };
 }
 
+/* ═══════════ سئوی داینامیک صفحه محصول ═══════════
+   title / meta description / canonical / JSON-LD بر اساس محصول انتخاب‌شده */
+function injectProductSEO(p){
+  const BASE = 'https://mrorganico.github.io/mr-organico/';
+  const url  = `${BASE}product.html?id=${encodeURIComponent(p.id)}`;
+  const name = p.name.replace(/[<>&"]/g, '');
+  const cat  = (CATEGORIES[p.cat] || {}).name || 'محصول';
+  const desc = `${name} — ${cat} از Mr Organico${p.origin ? ' (' + p.origin + ')' : ''}. ` +
+               `${p.weight ? 'وزن: ' + p.weight + '. ' : ''}` +
+               `بدون مواد افزودنی و شیمیایی، بسته‌بندی زیپ‌دار و ارسال سراسر ایران. خرید توتون ارگانیک و پیپ دست‌ساز.`;
+  const jdesc = desc.replace(/[<>&"]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'}[c]));
+
+  const setMeta = (sel, attr, val, createTag) => {
+    let el = document.head.querySelector(sel);
+    if(!el && createTag){ el = document.createElement(createTag.tag); createTag.attrs.forEach(([k, v]) => el.setAttribute(k, v)); document.head.appendChild(el); }
+    if(el) el.setAttribute(attr, val);
+  };
+
+  setMeta('meta[name="description"]', 'content', jdesc, { tag:'meta', attrs:[['name','description']] });
+  setMeta('meta[property="og:title"]', 'content', jdesc ? `${name} | Mr Organico` : '', { tag:'meta', attrs:[['property','og:title']] });
+  setMeta('meta[property="og:description"]', 'content', jdesc, { tag:'meta', attrs:[['property','og:description']] });
+  setMeta('meta[property="og:url"]', 'content', url, { tag:'meta', attrs:[['property','og:url']] });
+  setMeta('meta[property="og:type"]', 'content', 'product', { tag:'meta', attrs:[['property','og:type']] });
+  setMeta('meta[name="twitter:title"]', 'content', `${name} | Mr Organico`, { tag:'meta', attrs:[['name','twitter:title']] });
+  setMeta('meta[name="twitter:description"]', 'content', jdesc, { tag:'meta', attrs:[['name','twitter:description']] });
+  setMeta('link[rel="canonical"]', 'href', url, { tag:'link', attrs:[['rel','canonical']] });
+
+  /* قیمت نمایشی واقعی برای اسکیما */
+  const kilo = kiloOf(p);
+  const hasOffer = !!(p.price || kilo) && p.stock !== false;
+  const offerPrice = p.price || (kilo ? priceFor(p, 100) : 0);
+  const availability = p.stock === false
+    ? 'https://schema.org/OutOfStock'
+    : 'https://schema.org/InStock';
+
+  const ld = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name,
+    image: p.img ? [`${BASE}${p.img}`, `${BASE}images/og-image.jpg`] : [`${BASE}images/og-image.jpg`],
+    description: jdesc,
+    sku: p.id,
+    mpn: p.id,
+    brand: { '@type': 'Brand', name: 'Mr Organico', alternateName: 'میستر ارگانیک' },
+    category: cat,
+    material: p.cat === 'tobacco' ? 'توتون طبیعی ارگانیک' : undefined,
+    audience: { '@type': 'PeopleAudience', suggestedMinimumAge: 18 },
+    aggregateRating: undefined,
+    offers: hasOffer ? {
+      '@type': 'Offer',
+      url,
+      priceCurrency: 'IRR',
+      price: String(offerPrice),
+      availability,
+      itemCondition: 'https://schema.org/NewCondition',
+      seller: { '@type': 'Organization', name: 'Mr Organico', url: BASE }
+    } : undefined
+  };
+
+  /* امتیاز و بازخورد */
+  try{
+    const { base, mine } = productReviews(p);
+    const all = base.concat(mine.map(r => ({ r: r.r })));
+    if(all.length){
+      const avg = all.reduce((s, x) => s + x.r, 0) / all.length;
+      ld.aggregateRating = {
+        '@type': 'AggregateRating',
+        ratingValue: avg.toFixed(1),
+        reviewCount: String(all.length),
+        bestRating: '5',
+        worstRating: '1'
+      };
+    }
+  }catch(e){}
+
+  /* حذف اسکیمای قبلی همین صفحه */
+  document.head.querySelectorAll('script[data-dyn-ld="1"]').forEach(s => s.remove());
+  const s = document.createElement('script');
+  s.type = 'application/ld+json';
+  s.setAttribute('data-dyn-ld', '1');
+  s.textContent = JSON.stringify(ld, (k, v) => v === undefined ? undefined : v, 2);
+  document.head.appendChild(s);
+}
+
 function initProduct(){
   const id = qs.get('id');
   const p = PRODUCTS.find(x => x.id === id);
   const box = document.getElementById('pdBox');
   if(!p){ box.innerHTML = '<div class="empty-cart"><div class="big">🚫</div><p>محصول یافت نشد</p><a class="btn btn-gold" href="products.html">بازگشت به فروشگاه</a></div>'; return; }
   document.title = `${p.name} | Mr Organico`;
+
+  /* ─── سئوی داینامیک: توضیح متا + canonical + داده ساخت‌یافته محصول ─── */
+  injectProductSEO(p);
   const off = p.oldPrice && p.price > 0 ? Math.round((1 - p.price / p.oldPrice) * 100) : 0;
   const oos = p.stock === false;
   const noPrice = !p.price && !p.kiloPrice && !oos;   /* تماس برای قیمت */

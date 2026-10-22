@@ -90,6 +90,48 @@ header.site{
 }
 .logo-mark svg{ width:26px; height:26px; }
 .logo-mark img{ width:100%; height:100%; object-fit:cover; border-radius:12px; display:block; }
+
+/* ── لوگوی دایره‌ای متحرک هدر/فوتر ── */
+.orb-mark{
+  position:relative; width:54px; height:54px; border-radius:50%;
+  background:radial-gradient(circle at 32% 26%, #1d4d63, #08131b);
+  border:1.5px solid rgba(212,175,55,.6);
+  box-shadow:
+    0 0 0 3px rgba(6,16,25,.9),
+    0 0 16px rgba(212,175,55,.35),
+    inset 0 0 20px rgba(79,179,217,.22);
+  animation:markPulse 4.5s ease-in-out infinite;
+}
+.orb-mark img{
+  width:100%; height:100%; border-radius:50%; object-fit:cover;
+  animation:markSpin 34s linear infinite;
+}
+/* حلقه نورانی دور لوگو */
+.orb-mark::after{
+  content:''; position:absolute; inset:-6px; border-radius:50%;
+  border:1.5px dashed rgba(79,179,217,.55);
+  border-top-color:var(--gold);
+  animation:markSpin 12s linear infinite;
+  pointer-events:none;
+}
+@keyframes markSpin{ to{ transform:rotate(360deg); } }
+@keyframes markPulse{
+  0%,100%{ box-shadow:0 0 0 3px rgba(6,16,25,.9), 0 0 14px rgba(212,175,55,.28), inset 0 0 18px rgba(79,179,217,.2); }
+  50%    { box-shadow:0 0 0 3px rgba(6,16,25,.9), 0 0 26px rgba(212,175,55,.55), inset 0 0 24px rgba(79,179,217,.34); }
+}
+.logo{ align-items:center; }
+.logo-text strong{
+  background:linear-gradient(90deg,#fff,var(--gold-2),#fff);
+  background-size:220% 100%;
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+  animation:textShimmer 6s linear infinite;
+}
+@keyframes textShimmer{ 0%{background-position:200% 0} 100%{background-position:-20% 0} }
+.logo-text span{ animation:tagFade 5s ease-in-out infinite; display:inline-block; }
+@keyframes tagFade{ 0%,100%{opacity:.75} 50%{opacity:1} }
+@media(prefers-reduced-motion:reduce){
+  .orb-mark,.orb-mark img,.orb-mark::after,.logo-text strong,.logo-text span{ animation:none !important; }
+}
 .logo-text strong{ display:block; font-size:1.05rem; font-weight:900; letter-spacing:.02em; }
 .logo-text span{ font-size:.68rem; color:var(--gold-2); letter-spacing:.28em; }
 .nav-links{ display:flex; gap:4px; }
@@ -174,6 +216,127 @@ header.site{
 .hero-stats .stat span{ font-size:.82rem; color:var(--ink-soft); }
 .hero-art{ display:grid; place-items:center; }
 @media(max-width:900px){ .hero-grid{ grid-template-columns:1fr; text-align:center; } .hero p.lead{ margin-inline:auto; } .hero-cta,.hero-stats{ justify-content:center; } }
+
+/* ═══════════ لوگوی دایره‌ای متحرک هیرو ═══════════ */
+.hero-orb{
+  position:relative; width:min(430px,84vw); aspect-ratio:1/1;
+  display:grid; place-items:center;
+  animation:orbFloat 9s ease-in-out infinite;
+}
+@keyframes orbFloat{
+  0%,100%{ transform:translateY(-10px); }
+  50%    { transform:translateY(10px); }
+}
+
+/* هاله نوری پشت لوگو */
+.orb-halo{
+  position:absolute; inset:-14%; border-radius:50%;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(212,175,55,.20), transparent 62%),
+    radial-gradient(circle at 32% 28%, rgba(79,179,217,.26), transparent 58%),
+    radial-gradient(circle at 70% 74%, rgba(168,120,255,.18), transparent 58%);
+  filter:blur(14px);
+  animation:orbPulse 5.5s ease-in-out infinite;
+}
+@keyframes orbPulse{
+  0%,100%{ transform:scale(.94); opacity:.72; }
+  50%    { transform:scale(1.06); opacity:1; }
+}
+
+/* حلقه‌های متن چرخان */
+.orb-ring{
+  position:absolute; inset:0; width:100%; height:100%;
+  overflow:visible; pointer-events:none;
+}
+.orb-ring-outer{ animation:orbSpin 46s linear infinite; }
+.orb-ring-inner{ animation:orbSpinRev 34s linear infinite; }
+@keyframes orbSpin    { to{ transform:rotate(360deg); } }
+@keyframes orbSpinRev { to{ transform:rotate(-360deg); } }
+
+.orb-ring text{ font-family:'Vazirmatn',Tahoma,sans-serif; font-weight:700; direction:ltr; }
+.orb-lat{
+  font-size:14.5px; letter-spacing:5.6px; fill:var(--gold-2);
+  opacity:.92;
+}
+.orb-fa{
+  font-size:19px; letter-spacing:1.2px; fill:#9fe6ff;
+  opacity:.9;
+}
+
+/* ماهواره‌های نورانی */
+.orb-sat{
+  position:absolute; inset:0; border-radius:50%;
+  animation:orbSpin 17s linear infinite;
+}
+.orb-sat::before{
+  content:''; position:absolute; top:-5px; left:50%;
+  width:11px; height:11px; margin-inline-start:-5.5px; border-radius:50%;
+  background:radial-gradient(circle at 35% 35%, #fff, var(--gold) 55%, transparent 75%);
+  box-shadow:0 0 14px 3px rgba(212,175,55,.85);
+}
+.orb-sat-2{
+  inset:9%; animation:orbSpinRev 12s linear infinite;
+}
+.orb-sat-2::before{
+  background:radial-gradient(circle at 35% 35%, #fff, #7fe7ff 55%, transparent 75%);
+  box-shadow:0 0 14px 3px rgba(79,200,255,.85);
+}
+
+/* هسته لوگو */
+.orb-logo{
+  position:relative; width:62%; aspect-ratio:1/1;
+  animation:orbBreathe 6.5s ease-in-out infinite;
+}
+@keyframes orbBreathe{
+  0%,100%{ transform:scale(1) rotate(0deg); }
+  50%    { transform:scale(1.035) rotate(1.4deg); }
+}
+.orb-frame{
+  position:absolute; inset:0; border-radius:50%; overflow:hidden;
+  border:2px solid rgba(212,175,55,.55);
+  box-shadow:
+    0 0 0 7px rgba(6,16,25,.85),
+    0 0 0 8px rgba(212,175,55,.32),
+    0 24px 60px rgba(0,0,0,.6),
+    inset 0 0 40px rgba(0,0,0,.55);
+  background:#050b11;
+  display:block;
+}
+.orb-frame img{
+  width:100%; height:100%; object-fit:cover; display:block;
+  animation:orbSlowTilt 22s ease-in-out infinite;
+}
+@keyframes orbSlowTilt{
+  0%,100%{ transform:rotate(-2.2deg) scale(1.06); }
+  50%    { transform:rotate(2.2deg)  scale(1.06); }
+}
+/* حلقه طلایی دور قاب — جدا از خود عکس می‌چرخد */
+.orb-logo::after{
+  content:''; position:absolute; inset:-13px; border-radius:50%;
+  border:1.5px dashed rgba(159,230,255,.45);
+  animation:orbSpinRev 40s linear infinite;
+}
+
+/* تگ بالای لوگو */
+.hero-orb .hero-img-tag{
+  position:absolute; bottom:2%; inset-inline-start:50%;
+  transform:translateX(50%);
+  z-index:5; white-space:nowrap;
+  animation:tagBlink 4s ease-in-out infinite;
+}
+@keyframes tagBlink{
+  0%,100%{ box-shadow:0 0 0 0 rgba(79,179,217,.35); }
+  50%    { box-shadow:0 0 18px 3px rgba(79,179,217,.45); }
+}
+
+@media(max-width:900px){
+  .hero-orb{ width:min(340px,78vw); margin-inline:auto; }
+  .orb-lat{ font-size:13px; letter-spacing:4.6px; }
+  .orb-fa { font-size:16px; }
+}
+@media(prefers-reduced-motion:reduce){
+  .hero-orb,.orb-halo,.orb-ring,.orb-sat,.orb-logo,.orb-logo::after,.orb-frame img,.hero-orb .hero-img-tag{ animation:none !important; }
+}
 
 /* ---------- نوار اعتماد ---------- */
 .trustbar{ border-block:1px solid var(--line); background:var(--surface); }
@@ -318,6 +481,7 @@ header.site{
 .c3d-name{
   font-size:.86rem; font-weight:800; line-height:1.65;
   display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
+  min-height:24px; box-sizing:border-box; padding-block:1px;
 }
 .c3d-name:hover{ color:var(--gold-2); }
 .c3d-foot{ display:flex; align-items:center; justify-content:space-between; gap:8px; margin-top:auto; }
@@ -361,9 +525,15 @@ header.site{
 .cf-stage .c3d-card .p-thumb{ height:206px; }
 .cf-center{ box-shadow:0 30px 60px -20px rgba(0,0,0,.7), 0 0 0 1px rgba(79,179,217,.35); }
 .cf-nav{ display:flex; justify-content:center; gap:12px; margin-top:16px; align-items:center; }
-.cf-dots{ display:flex; gap:7px; align-items:center; margin:0 10px; }
-.cf-dot{ width:9px; height:9px; border-radius:20px; background:var(--line); transition:.35s; }
-.cf-dot.on{ width:26px; background:var(--gold-2); }
+/* نقطه‌ها: ناحیه لمسی ۲۴×۲۴ (WCAG 2.5.8) با حفظ ظاهر نقطه‌ای کوچک */
+.cf-dots{ display:flex; gap:2px; align-items:center; margin:0 6px; }
+.cf-dot{
+  width:24px; height:24px; border-radius:20px; background:transparent;
+  display:grid; place-items:center; transition:.35s;
+}
+.cf-dot::before{ content:''; width:9px; height:9px; border-radius:20px; background:var(--line); transition:.35s; display:block; }
+.cf-dot.on{ width:34px; }
+.cf-dot.on::before{ width:26px; background:var(--gold-2); }
 @media(max-width:600px){ .cf-stage{ height:390px; } .cf-stage .c3d-card{ width:224px; height:346px; margin:-173px 0 0 -112px; right:auto; bottom:auto; } }
 
 /* ---------- نوار متحرک بی‌نهایت ---------- */
@@ -481,7 +651,7 @@ footer.site{ background:var(--bg-2); border-top:1px solid var(--line); margin-to
 }
 .footer-grid h4{ font-size:1rem; margin-bottom:18px; color:var(--gold-2); font-weight:800; }
 .footer-grid ul{ display:grid; gap:10px; }
-.footer-grid ul a{ color:var(--ink-soft); font-size:.88rem; transition:.2s; }
+.footer-grid ul a{ color:var(--ink-soft); font-size:.88rem; transition:.2s; display:inline-block; padding-block:3px; min-height:24px; box-sizing:border-box; }
 .footer-grid ul a:hover{ color:var(--gold-2); padding-inline-start:4px; }
 .footer-about p{ color:var(--ink-soft); font-size:.86rem; margin:14px 0 18px; }
 .footer-contact li{ display:flex; gap:10px; align-items:center; color:var(--ink-soft); font-size:.88rem; }
@@ -611,6 +781,40 @@ footer.site{ background:var(--bg-2); border-top:1px solid var(--line); margin-to
 }
 .article-hero{ border-radius:20px; overflow:hidden; border:1px solid var(--line); margin-bottom:34px; }
 .article-hero .ph{ aspect-ratio:16/7.5; }
+
+/* عنوان انگلیسی مقاله (دوزبانه) */
+.article-en{
+  font-size:.98rem; font-weight:600; color:var(--gold-2);
+  margin:-10px 0 18px; line-height:1.6; font-style:italic;
+}
+
+/* مقاله‌های مرتبط — سئوی داخلی */
+.related-posts{ margin-top:48px; padding-top:34px; border-top:1px solid var(--line); }
+.related-h{ font-size:1.15rem; font-weight:900; margin-bottom:20px; }
+.related-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.related-card{
+  display:flex; flex-direction:column; background:var(--surface);
+  border:1px solid var(--line); border-radius:14px; overflow:hidden;
+  transition:transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+}
+.related-card:hover{ transform:translateY(-4px); border-color:var(--gold); box-shadow:0 14px 30px rgba(0,0,0,.35); }
+.related-thumb{ display:block; aspect-ratio:16/9; overflow:hidden; }
+.related-thumb img{ width:100%; height:100%; object-fit:cover; transition:transform .5s ease; }
+.related-card:hover .related-thumb img{ transform:scale(1.06); }
+.related-body{ display:block; padding:14px 15px 16px; }
+.related-body b{
+  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
+  font-size:.88rem; font-weight:800; line-height:1.7; color:var(--ink);
+}
+.related-card:hover .related-body b{ color:var(--gold-2); }
+.related-body em{ display:block; margin-top:7px; font-size:.74rem; color:var(--ink-soft); font-style:normal; }
+.related-tags{ display:flex; flex-wrap:wrap; gap:8px; margin-top:22px; }
+.related-tags a{
+  font-size:.75rem; color:var(--ink-soft); border:1px solid var(--line);
+  padding:6px 13px; border-radius:99px; transition:.2s;
+}
+.related-tags a:hover{ background:var(--gold); color:#132b38; border-color:var(--gold); }
+@media(max-width:760px){ .related-grid{ grid-template-columns:1fr; } }
 
 /* ---------- هشدار سن ---------- */
 .age-overlay{
@@ -810,6 +1014,54 @@ footer.site{ background:var(--bg-2); border-top:1px solid var(--line); margin-to
 .adm-note b{ color:var(--gold-2); }
 .adm-import{ width:100%; background:var(--bg-2); border:1px solid var(--line); border-radius:11px; padding:10px 13px; font-size:.8rem; min-height:70px; color:var(--ink); margin-top:10px; }
 @media(max-width:700px){ .form-grid{ grid-template-columns:1fr; } .adm-stats{ grid-template-columns:1fr; } }
+
+/* ---------- گیت ورود پنل مدیریت ---------- */
+.adm-gate{ display:flex; justify-content:center; padding:26px 0 10px; }
+.adm-gate-box{
+  width:min(460px,100%); text-align:center;
+  background:var(--surface); border:1px solid var(--line); border-radius:20px;
+  padding:38px 30px 30px; position:relative; overflow:hidden;
+  box-shadow:0 24px 60px rgba(0,0,0,.45);
+}
+.adm-gate-box::before{
+  content:''; position:absolute; inset:-1px -1px auto -1px; height:3px;
+  background:linear-gradient(90deg,transparent,var(--gold),#4fb3d9,var(--gold),transparent);
+  background-size:220% 100%; animation:gateShine 3.4s linear infinite;
+}
+@keyframes gateShine{ 0%{background-position:200% 0} 100%{background-position:-20% 0} }
+.adm-lock-ico{
+  font-size:2.5rem; line-height:1; margin-bottom:14px;
+  display:inline-grid; place-items:center; width:74px; height:74px; border-radius:50%;
+  background:radial-gradient(circle at 32% 28%, #1d4d63, #0b1c27);
+  border:1px solid #2e6a84; box-shadow:0 0 0 6px rgba(79,179,217,.07), inset 0 0 22px rgba(79,179,217,.2);
+  animation:lockPulse 2.8s ease-in-out infinite;
+}
+@keyframes lockPulse{
+  0%,100%{ transform:scale(1); box-shadow:0 0 0 6px rgba(79,179,217,.07), inset 0 0 22px rgba(79,179,217,.2); }
+  50%    { transform:scale(1.05); box-shadow:0 0 0 12px rgba(212,175,55,.10), inset 0 0 26px rgba(212,175,55,.24); }
+}
+.adm-gate-box .kicker{ display:block; margin-bottom:6px; }
+.adm-gate-box h2{ font-size:1.35rem; font-weight:900; margin:0 0 10px; }
+.adm-gate-sub{ font-size:.86rem; color:var(--ink-soft); line-height:2; margin-bottom:22px; }
+.adm-gate-box .field{ text-align:start; }
+.pw-row{ position:relative; display:flex; }
+.pw-row input{ flex:1; padding-inline-end:46px; }
+.pw-toggle{
+  position:absolute; inset-inline-end:6px; top:50%; transform:translateY(-50%);
+  width:34px; height:34px; border:none; background:transparent; cursor:pointer;
+  border-radius:9px; font-size:1rem; display:grid; place-items:center;
+}
+.pw-toggle:hover{ background:var(--bg-2); }
+.adm-gate-msg{ font-size:.84rem; font-weight:700; min-height:22px; margin-top:14px; line-height:1.8; }
+.adm-gate-msg.err{ color:#ff8b8b; }
+.adm-gate-msg.ok{ color:#7ee3a5; }
+.adm-gate-msg.lock{ color:#ffd479; animation:msgBlink 1s ease-in-out infinite; }
+@keyframes msgBlink{ 0%,100%{opacity:1} 50%{opacity:.45} }
+.adm-gate-hint{ font-size:.72rem; color:var(--ink-soft); margin-top:16px; opacity:.75; line-height:1.9; }
+.adm-gate-box button[disabled],.adm-gate-box input[disabled]{ opacity:.5; cursor:not-allowed; }
+.btn-block{ width:100%; }
+
+/* ---------- انیمیشن لوگوی دایره‌ای هدر/فوتر ---------- */
 
 /* ---------- مروارید اسکرول ---------- */
 ::-webkit-scrollbar{ width:10px; }

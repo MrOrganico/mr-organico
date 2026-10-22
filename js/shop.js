@@ -231,7 +231,18 @@ function initProduct(){
   const id = qs.get('id');
   const p = PRODUCTS.find(x => x.id === id);
   const box = document.getElementById('pdBox');
-  if(!p){ box.innerHTML = '<div class="empty-cart"><div class="big">🚫</div><p>محصول یافت نشد</p><a class="btn btn-gold" href="products.html">بازگشت به فروشگاه</a></div>'; return; }
+  if(!p){
+    /* صفحه خطای بدون id یا id نامعتبر: از ایندکس‌شدن در گوگل جلوگیری کن */
+    (function(){
+      let m = document.head.querySelector('meta[name="robots"]');
+      if(!m){ m = document.createElement('meta'); m.setAttribute('name','robots'); document.head.appendChild(m); }
+      m.setAttribute('content','noindex, nofollow, noarchive');
+      const c = document.head.querySelector('link[rel="canonical"]');
+      if(c) c.parentNode.removeChild(c);
+    })();
+    box.innerHTML = '<div class="empty-cart"><div class="big">🚫</div><p>محصول یافت نشد</p><a class="btn btn-gold" href="products.html">بازگشت به فروشگاه</a></div>';
+    return;
+  }
   document.title = `${p.name} | Mr Organico`;
 
   /* ─── سئوی داینامیک: توضیح متا + canonical + داده ساخت‌یافته محصول ─── */

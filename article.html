@@ -56,6 +56,14 @@
   const a = ARTICLES.find(x => x.id === new URLSearchParams(location.search).get('id'));
   const box = document.getElementById('articleBox');
   if(!a){
+    /* صفحه خطای بدون id یا id نامعتبر: از ایندکس‌شدن در گوگل جلوگیری کن */
+    (function(){
+      let m = document.head.querySelector('meta[name="robots"]');
+      if(!m){ m = document.createElement('meta'); m.setAttribute('name','robots'); document.head.appendChild(m); }
+      m.setAttribute('content','noindex, nofollow, noarchive');
+      const c = document.head.querySelector('link[rel="canonical"]');
+      if(c) c.parentNode.removeChild(c);
+    })();
     box.innerHTML = '<div class="empty-cart"><div class="big">📄</div><p>مقاله یافت نشد</p><a class="btn btn-gold" href="blog.html">همه مقالات</a></div>';
   } else {
     document.title = `${a.title} | Mr Organico`;

@@ -271,11 +271,19 @@ function renderFooter(){
     /* روش ۱: سه کلیک روی لوگوی فوتر */
     const footLogo = document.querySelector('#siteFooter .logo-mark');
     if(footLogo){
-      footLogo.addEventListener('click', () => {
+      const anchor = footLogo.closest('a');
+      footLogo.addEventListener('click', (e) => {
+        /* ناوبری عادیِ لینک را نگه می‌داریم تا صفحه رفرش نشود
+           و شمارنده کلیک‌ها از بین نرود؛ اگر فقط یک کلیک خورد،
+           رفتار عادی (رفتن به خانه) بعد از پایان بازه زمانی انجام می‌شود. */
+        e.preventDefault();
         hits++;
         clearTimeout(timer);
         if(hits >= CLICKS){ hits = 0; go(); return; }
-        timer = setTimeout(() => { hits = 0; }, WINDOW_MS);
+        timer = setTimeout(() => {
+          if(hits === 1 && anchor) location.href = anchor.getAttribute('href') || 'index.html';
+          hits = 0;
+        }, WINDOW_MS);
       });
     }
 

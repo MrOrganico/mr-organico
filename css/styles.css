@@ -74,9 +74,11 @@ input,textarea,select{ font-family:inherit; font-size:inherit; color:inherit; }
   font-size:.8rem; color:#cfe6f2; text-align:center; padding:7px 12px;
 }
 .topbar b{ color:var(--gold-2); }
+/* هدر چسبان: بدون backdrop-filter — چون روی sticky بودن باعث می‌شد
+   لایه‌ی جدا بگیرد و نیمه پایین متن نوار بالا را بپوشاند (متن نصف دیده می‌شد). */
 header.site{
   position:sticky; top:0; z-index:60;
-  background:rgba(6,16,25,.86); backdrop-filter:blur(14px);
+  background:rgba(6,16,25,.94);
   border-bottom:1px solid var(--line);
 }
 .nav{ display:flex; align-items:center; gap:26px; height:74px; }

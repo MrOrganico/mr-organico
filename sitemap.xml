@@ -5,521 +5,521 @@
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/index.html 1.0 weekly</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/index.html</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/products.html 0.9 daily</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/products.html</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/blog.html 0.8 weekly</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/blog.html</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/about.html 0.7 monthly</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/about.html</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/contact.html 0.7 monthly</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/contact.html</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/faq.html 0.6 monthly</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/faq.html</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/club.html 0.7 weekly</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/club.html</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/cart.html 0.5 monthly</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/cart.html</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/privacy.html 0.4 yearly</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/privacy.html</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/terms.html 0.4 yearly</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/terms.html</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/returns.html 0.4 yearly</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/returns.html</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/product.html?id=t01 0.8 daily</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/product.html?id=t01</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/product.html?id=t02 0.8 daily</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/product.html?id=t02</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/product.html?id=t03 0.8 daily</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/product.html?id=t03</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/product.html?id=t04 0.8 daily</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/product.html?id=t04</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/product.html?id=t05 0.8 daily</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/product.html?id=t05</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/product.html?id=t06 0.8 daily</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/product.html?id=t06</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/product.html?id=t07 0.8 daily</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/product.html?id=t07</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/product.html?id=t08 0.8 daily</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/product.html?id=t08</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/product.html?id=t10 0.8 daily</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/product.html?id=t10</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/product.html?id=t11 0.8 daily</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/product.html?id=t11</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/product.html?id=t12 0.8 daily</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/product.html?id=t12</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/product.html?id=t13 0.8 daily</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/product.html?id=t13</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/product.html?id=t14 0.8 daily</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/product.html?id=t14</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/product.html?id=t15 0.8 daily</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/product.html?id=t15</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/product.html?id=t16 0.8 daily</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/product.html?id=t16</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/product.html?id=p01 0.8 daily</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/product.html?id=p01</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/product.html?id=p02 0.8 daily</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/product.html?id=p02</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/product.html?id=p03 0.8 daily</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/product.html?id=p03</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/product.html?id=p04 0.8 daily</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/product.html?id=p04</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/product.html?id=p05 0.8 daily</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/product.html?id=p05</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/product.html?id=p06 0.8 daily</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/product.html?id=p06</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/product.html?id=p07 0.8 daily</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/product.html?id=p07</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/product.html?id=p08 0.8 daily</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/product.html?id=p08</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/product.html?id=p09 0.8 daily</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/product.html?id=p09</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/product.html?id=p10 0.8 daily</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/product.html?id=p10</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/product.html?id=p11 0.8 daily</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/product.html?id=p11</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/product.html?id=p12 0.8 daily</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/product.html?id=p12</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/product.html?id=a01 0.8 daily</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/product.html?id=a01</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/product.html?id=a03 0.8 daily</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/product.html?id=a03</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/product.html?id=a07 0.8 daily</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/product.html?id=a07</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/product.html?id=a10 0.8 daily</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/product.html?id=a10</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/product.html?id=a12 0.8 daily</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/product.html?id=a12</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/product.html?id=a14 0.8 daily</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/product.html?id=a14</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/product.html?id=a15 0.8 daily</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/product.html?id=a15</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/product.html?id=a16 0.8 daily</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/product.html?id=a16</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/product.html?id=a21 0.8 daily</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/product.html?id=a21</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/product.html?id=a22 0.8 daily</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/product.html?id=a22</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/product.html?id=a23 0.8 daily</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/product.html?id=a23</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/product.html?id=a24 0.8 daily</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/product.html?id=a24</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/product.html?id=a25 0.8 daily</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/product.html?id=a25</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/product.html?id=a26 0.8 daily</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/product.html?id=a26</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/product.html?id=a27 0.8 daily</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/product.html?id=a27</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/product.html?id=a28 0.8 daily</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/product.html?id=a28</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/product.html?id=n01 0.8 daily</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/product.html?id=n01</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/product.html?id=n02 0.8 daily</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/product.html?id=n02</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/product.html?id=n03 0.8 daily</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/product.html?id=n03</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/product.html?id=n04 0.8 daily</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/product.html?id=n04</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/product.html?id=n05 0.8 daily</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/product.html?id=n05</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/product.html?id=n07 0.8 daily</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/product.html?id=n07</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/product.html?id=n08 0.8 daily</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/product.html?id=n08</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/product.html?id=n09 0.8 daily</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/product.html?id=n09</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/product.html?id=n10 0.8 daily</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/product.html?id=n10</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/product.html?id=n11 0.8 daily</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/product.html?id=n11</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/product.html?id=n12 0.8 daily</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/product.html?id=n12</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/article.html?id=structuring-tobacco 0.7 monthly</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/article.html?id=structuring-tobacco</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/article.html?id=additive-free-tobacco 0.7 monthly</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/article.html?id=additive-free-tobacco</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/article.html?id=tobacco-curing-fermentation 0.7 monthly</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/article.html?id=tobacco-curing-fermentation</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/article.html?id=nicotine-levels-guide 0.7 monthly</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/article.html?id=nicotine-levels-guide</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/article.html?id=hand-rolling-guide 0.7 monthly</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/article.html?id=hand-rolling-guide</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/article.html?id=organic-tobacco-health 0.7 monthly</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/article.html?id=organic-tobacco-health</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/article.html?id=organic-vs-chemical 0.7 monthly</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/article.html?id=organic-vs-chemical</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/article.html?id=pipe-guide 0.7 monthly</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/article.html?id=pipe-guide</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://mrorganico.github.io/mr-organico/article.html?id=storage-tips 0.7 monthly</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://mrorganico.github.io/mr-organico/article.html?id=storage-tips</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 
 </urlset>

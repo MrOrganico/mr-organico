@@ -146,7 +146,7 @@ function productReviews(p){
 /* ═══════════ سئوی داینامیک صفحه محصول ═══════════
    title / meta description / canonical / JSON-LD بر اساس محصول انتخاب‌شده */
 function injectProductSEO(p){
-  const BASE = 'https://mrorganico.github.io/mr-organico/';
+  const BASE = 'https://mr-organico.vercel.app/';
   const url  = `${BASE}product.html?id=${encodeURIComponent(p.id)}`;
   const name = p.name.replace(/[<>&"]/g, '');
   const cat  = (CATEGORIES[p.cat] || {}).name || 'محصول';

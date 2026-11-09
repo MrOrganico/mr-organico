@@ -323,3 +323,19 @@ function initReveal(){
   }, { threshold:.12 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 }
+
+/* ═══════════ اندازه‌گیری سئو و رفتار کاربر (GTM / GA4) ═══════════
+   هر ایونت از طریق dataLayer به GTM ارسال می‌شود؛ در GTM برای هر
+   event یک Custom Event Trigger بسازید و تگ GA4 به آن وصل کنید. */
+function moTrack(event, params){
+  try{
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push(Object.assign({ event: event }, params || {}));
+  }catch(e){}
+}
+
+/* کلیک روی هر لینک واتساپ در هر صفحه → ایونت whatsapp_click */
+document.addEventListener('click', e => {
+  const a = e.target.closest('a[href*="wa.me"]');
+  if(a) moTrack('whatsapp_click', { link_url: a.href });
+}, true);

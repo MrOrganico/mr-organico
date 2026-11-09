@@ -225,6 +225,22 @@ function injectProductSEO(p){
   s.setAttribute('data-dyn-ld', '1');
   s.textContent = JSON.stringify(ld, (k, v) => v === undefined ? undefined : v, 2);
   document.head.appendChild(s);
+
+  /* مسیر راهنما (Breadcrumb) برای نتایج غنی گوگل */
+  const crumb = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'خانه', item: BASE + 'index.html' },
+      { '@type': 'ListItem', position: 2, name: j(cat), item: BASE + 'products.html?cat=' + encodeURIComponent(p.cat) },
+      { '@type': 'ListItem', position: 3, name, item: url }
+    ]
+  };
+  const s2 = document.createElement('script');
+  s2.type = 'application/ld+json';
+  s2.setAttribute('data-dyn-ld', '1');
+  s2.textContent = JSON.stringify(crumb, null, 2);
+  document.head.appendChild(s2);
 }
 
 function initProduct(){
@@ -247,6 +263,16 @@ function initProduct(){
 
   /* ─── سئوی داینامیک: توضیح متا + canonical + داده ساخت‌یافته محصول ─── */
   injectProductSEO(p);
+
+  /* GTM/GA4: مشاهده محصول */
+  typeof moTrack === 'function' && moTrack('view_item', {
+    item_id: p.id,
+    item_name: p.name,
+    item_category: (CATEGORIES[p.cat] || {}).name || p.cat,
+    value: p.price || 0,
+    currency: 'IRT'
+  });
+
   const off = p.oldPrice && p.price > 0 ? Math.round((1 - p.price / p.oldPrice) * 100) : 0;
   const oos = p.stock === false;
   const noPrice = !p.price && !p.kiloPrice && !oos;   /* تماس برای قیمت */
@@ -405,10 +431,14 @@ function initProduct(){
   });
 
   /* افزودن / خرید سریع */
+  const trackAdd = w => typeof moTrack === 'function' && moTrack('add_to_cart', {
+    item_id: p.id, item_name: p.name, item_category: (CATEGORIES[p.cat] || {}).name || p.cat,
+    value: priceFor(p, w), currency: 'IRT'
+  });
   const addBtn = document.getElementById('pdAdd');
-  if(addBtn) addBtn.onclick = () => Cart.add(p.id, 1, hasWeights(p) ? selW : null);
+  if(addBtn) addBtn.onclick = () => { const w = hasWeights(p) ? selW : null; trackAdd(w); Cart.add(p.id, 1, w); };
   const buyBtn = document.getElementById('pdBuy');
-  if(buyBtn) buyBtn.onclick = () => { Cart.add(p.id, 1, hasWeights(p) ? selW : null); location.href = 'cart.html'; };
+  if(buyBtn) buyBtn.onclick = () => { const w = hasWeights(p) ? selW : null; trackAdd(w); Cart.add(p.id, 1, w); location.href = 'cart.html'; };
 
   /* ثبت دیدگاه */
   const revSend = document.getElementById('revSend');
@@ -686,6 +716,9 @@ function initCartPage(){
       });
       text += `\n💰 جمع: ${PRICE_FMT(sub)} تومان\n🚚 ارسال: ${ship === 0 ? 'رایگان' : PRICE_FMT(ship) + ' تومان'}\n🧾 کل: ${PRICE_FMT(sub + ship)} تومان`;
       window.open(`${WA_LINK}?text=${encodeURIComponent(text)}`, '_blank');
+      typeof moTrack === 'function' && moTrack('begin_checkout', {
+        value: sub + ship, currency: 'IRT', items_count: Cart.read().length
+      });
       toast('سفارش شما در واتساپ آماده ارسال شد');
     };
   }

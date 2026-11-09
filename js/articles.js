@@ -331,4 +331,152 @@ const ARTICLES = [
         <p><b>Related English terms:</b> organic tobacco, natural tobacco health, nicotine free claim, tobacco additives, transparent labelling, Mr Organico.</p>
       </div>`,
   },
+
+  /* ═══ مقالات جدید — کمپین سئو آبان ۱۴۰۴ ═══ */
+  {
+    id: 'virginia-vs-burley',
+    title: 'توتون ویرجینیا و بارلی؛ شناخت پایه‌های اصلی مخلوط‌ها قبل از خرید',
+    img: 'images/t11.webp',
+    cat: 'آموزشی', date: '۱۴۰۴/۰۸/۱۲', read: '۷ دقیقه',
+    tags: ['توتون ویرجینیا', 'بارلی', 'مخلوط توتون', 'توتون پیپ', 'سیگار دست‌ساز', 'خرید توتون'],
+    excerpt: 'بیشتر توتون‌های موجود در بازار از دو پایه ویرجینیا و بارلی ساخته می‌شوند؛ شناخت تفاوت این دو پایه، انتخاب شما را از حدس به انتخاب آگاهانه تبدیل می‌کند.',
+    body: `
+      <p>وقتی یک توتون پیپ یا سیگار دست‌ساز می‌خرید، در واقع یک «مخلوط» می‌خرید؛ و تقریباً همه مخلوط‌های تخصصی دنیا روی دو پایه اصلی بنا می‌شوند: <b>ویرجینیا (Virginia)</b> و <b>بارلی (Burley)</b>. اگر این دو پایه را بشناسید، دیگر بر اساس اسم برند خرید نمی‌کنید؛ بر اساس طعمی که دوست دارید.</p>
+      <h2>ویرجینیا؛ طعم روشن و شیرینِ برگ</h2>
+      <p>ویرجینیا از برگ‌های زرد کهربایی می‌آید و با روش <b>flue-curing (خشک‌سازی با هوای گرم)</b> فرآوری می‌شود؛ همین فرآیند قندهای طبیعی برگ را حفظ می‌کند. نتیجه: طعمی روشن، کمی شیرین و پر از نت‌های گیاهی و میوه‌ای. هر چقدر درصد ویرجینیا در مخلوط بیشتر باشد، مخلوط سبک‌تر و شیرین‌تر است؛ نقش ویرجینیا در مخلوط، «روشن‌کردن طعم و بازکردن اولین نفس» است.</p>
+      <h2>بارلی؛ ستون قویِ بدنه</h2>
+      <p>بارلی با روش <b>air-curing در سایه</b> فرآوری می‌شود و در نتیجه بدنه و نیکوتین بیشتری دارد. طعمش خاکی‌تر و گردتر است و مخلوط را «پُر» می‌کند. توتون‌های سنگین و خاکی — مثل بدنه قوی دودی <a href="product.html?id=t08" title="خرید توتون مارلبرو آمریکایی اورجینال">توتون مارلبرو آمریکایی</a> — در واقع روی پایه بارلی/خاکی کار شده‌اند.</p>
+      <h2>کدام پایه برای شما مناسب است؟</h2>
+      <ul>
+        <li><b>تازه‌وارد و طرفدار طعم ملایم:</b> مخلوط با ویرجینیای بالا؛ مثل <a href="product.html?id=t16" title="خرید توتون اولیا Mac Baren">توتون اولیا Mac Baren</a>.</li>
+        <li><b>طعم‌های مرکب و متعادل:</b> ترکیب ویرجینیا + بارلی؛ مثل <a href="product.html?id=t11" title="خرید توتون دیویدوف اورجینال">توتون دیویدوف اورجینال</a>.</li>
+        <li><b>دنبال بدنه سنگین و دودی:</b> پایه بارلی غالب؛ نمونه‌های خاکی مانند مارلبرو آمریکایی.</li>
+      </ul>
+      <blockquote>قانون ساده: اگر اولین نفس «شیرین و گیاهی» بود، ویرجینیا برنده است؛ اگر «خاکی و عمیق» بود، بارلی در حال کار است.</blockquote>
+      <p>برای انتخاب دقیق‌تر، در <a href="products.html?cat=tobacco">صفحه محصولات توتون Mr Organico</a> مشخصات هر توتون (عطر، طعم و غلظت) را کنار قیمت نوشته‌ایم؛ پیش از خرید بخوانید و بعد انتخاب کنید.</p>
+      <h3 lang="en" dir="ltr">Virginia vs Burley (English Section)</h3>
+      <div lang="en" dir="ltr">
+        <p>Almost every pipe and RYO blend is built on two leaf bases: <b>Virginia</b> (flue-cured; naturally sweet, floral and fruity) and <b>Burley</b> (air-cured; earthy, more body and nicotine). Light, sweet blends are Virginia-dominant; deep, earthy blends are Burley-dominant; most balanced blends combine both.</p>
+        <p><b>Related English terms:</b> virginia tobacco, burley tobacco, pipe tobacco blends, RYO tobacco, flue curing, air curing, organic pipe tobacco.</p>
+      </div>`,
+  },
+  {
+    id: 'oshnaviyeh-iranian-tobacco',
+    title: 'توتون اشنویه؛ گوهر ایرانی برای سیگار دست‌ساز و پیپ',
+    img: 'images/t03.webp',
+    cat: 'معرفی', date: '۱۴۰۴/۰۸/۱۶', read: '۶ دقیقه',
+    tags: ['توتون اشنویه', 'توتون ایرانی', 'توتون طلا', 'توتون طبیعی', 'سیگار دستی', 'خرید توتون'],
+    excerpt: 'درحالی‌که اکثر توتون‌های بازار وارداتی هستند، اشنویه نشان می‌دهد ایران هم برگ درجه‌یک دارد؛ در این معرفی، ویژگی‌های طعمی و نحوه استفاده از آن را مرور می‌کنیم.',
+    body: `
+      <p>شنیده‌اید بگویند «توتون خوب فقط وارداتی است»؟ منطقه <b>اشنویه</b> در آذربایجان غربی سال‌هاست این جمله را رد کرده است؛ آب‌وهوای کوهستانی و خاک حاصلخیز این منطقه، برگ‌هایی با <b>عطر غلیظ و سرشار از اسانس</b> تولید می‌کند که در بازار داخلی به <b>توتون طلا</b> معروف است.</p>
+      <h2>خصوصیات طعمی برگ اشنویه</h2>
+      <ul>
+        <li><b>عطر شرقیِ متمایز:</b> نت‌های گرم و عمیق که شبیه برگ‌های بلغاری و ترکیه‌ای است، اما با امضای ایرانی خودش.</li>
+        <li><b>فرآوری سنتی تخصصی:</b> سال‌ها تجربه منطقه در خشک‌سازی و تخمیر سنتی، برگ‌هایی با رطوبت متعادل و طعمی یکنواخت تحویل می‌دهد.</li>
+        <li><b>مناسب برای همه؟</b> مناسب همان دو مصرف اصلی: <b>سیگار دست‌ساز</b> و <b>پیپ</b>؛ برش پولکی آن در پیپ عمق طعم خوبی می‌سازد.</li>
+      </ul>
+      <blockquote>برگ اشنویه هم‌تراز توتون‌های مطرح ترکیه‌ای است؛ با این تفاوت که عمق عطر گرم ایرانی آن، از خاک آذرین اشنویه می‌آید و تکرارپذیر نیست.</blockquote>
+      <p>اگر می‌خواهید این برگ اصل را تجربه کنید، <a href="product.html?id=t03" title="خرید توتون اشنویه ایرانی اصل">توتون اشنویه ایرانی اصل</a> با بسته‌بندی زیپ‌دار و ارسال سراسر کشور در دسترس است؛ برای مقایسه با برگ‌های شرقی، <a href="product.html?id=t10" title="خرید توتون شمزین ترکیه اورجینال">توتون شمزین ترکیه</a> هم گزینه جالبی برای سنجش طعم است.</p>
+      <h2>چرا برگ ایرانی اهمیت دارد؟</h2>
+      <p>دو مزیت شفاف: اول <b>ردیابی‌پذیری</b> — می‌دانید برگ از کدام منطقه آمده است. دوم <b>تازگی بیشتر</b> — مسیر از مزرعه تا بسته کوتاه‌تر از مسیر وارداتی است و عطر تازه‌تر می‌ماند.</p>
+      <h3 lang="en" dir="ltr">Oshnaviyeh — Fine Iranian Tobacco (English Section)</h3>
+      <div lang="en" dir="ltr">
+        <p>Oshnaviyeh in West Azerbaijan produces some of Iran's finest <b>natural tobacco</b> — aromatic, mountain-grown and traditionally cured. It works beautifully for both <b>hand-rolled cigarettes</b> and <b>pipe tobacco</b>.</p>
+        <p><b>Related English terms:</b> Iranian tobacco, Oshnaviyeh tobacco, natural tobacco Iran, hand rolling tobacco, organic tobacco supplier, Persian pipe tobacco.</p>
+      </div>`,
+  },
+  {
+    id: 'bulk-tobacco-buying-guide',
+    title: 'خرید توتون فله بر اساس وزن؛ راهنمای صرفه‌جویی هوشمندانه',
+    img: 'images/t08.webp',
+    cat: 'راهنمای خرید', date: '۱۴۰۴/۰۸/۱۷', read: '۷ دقیقه',
+    tags: ['خرید توتون فله', 'توتون کیلویی', 'قیمت توتون', 'سیگار دست‌ساز', 'توتون پیپ', 'توتون ارگانیک'],
+    excerpt: 'قیمت هر گرم توتون فله در وزن‌های مختلف متفاوت است؛ اگر ساختار قیمت‌گذاری وزنی را بشناسید، در هر خرید صرفه‌جویی قابل توجهی می‌کنید.',
+    body: `
+      <p>خرید توتون فله با یک سوال ساده شروع می‌شود: <b>«چقدر بخرم؟»</b> — جواب این سوال دو بعد دارد: مصرف واقعی شما و ریاضیات قیمت وزنی. در این راهنما فقط بعد دوم را شفاف می‌کنیم.</p>
+      <h2>ریاضیات قیمت‌گذاری وزنی</h2>
+      <p>در فروشگاه‌های تخصصی، قیمت پایه برگ بر اساس <b>کیلوگرم</b> تعیین می‌شود و در بقیه وزن‌ها با قانون کاهشی محاسبه می‌گردد:</p>
+      <ul>
+        <li><b>۱ کیلوگرم:</b> قیمت پایه؛ کمترین هزینه هر گرم.</li>
+        <li><b>نیم‌کیلو:</b> حدود ۹۵٪ قیمت گرم کیلویی، به‌اضافه بسته‌بندی و کارکرد اضافه.</li>
+        <li><b>۱۰۰ گرم:</b> «وزن استاندارد»؛ مبنای مقایسه روزمره قیمت‌ها.</li>
+        <li><b>۵۰ گرم:</b> برای نمونه‌گیری؛ به‌خاطر خرده‌فروشی، قیمت هر گرم کمی بالاتر است.</li>
+      </ul>
+      <blockquote>قانون ساده وزنی: هر چه بسته بزرگ‌تر، قیمت هر گرم کمتر — اما فقط تا سقف مصرف واقعی شما. خرید بزرگ بدون مصرف متناسب یعنی برگ خشک‌شده و از دست رفتن عطر.</blockquote>
+      <h2>توصیه‌های عملی برای خرید فله</h2>
+      <ol>
+        <li>اول <b>پنجاه گرمی نمونه</b> بخرید؛ اگر عطر و برش را پسندیدید، بعد به بسته بزرگ‌تر بروید.</li>
+        <li>برای مصرف روزانه، <b>نیم‌کیلو یا کیلویی</b> — مثلاً از <a href="product.html?id=t05" title="خرید توتون موش ترکیه طلایی">توتون موش ترکیه طلایی</a> یا <a href="product.html?id=t10" title="خرید توتون شمزین ترکیه اورجینال">توتون شمزین ترکیه</a> — صرفه‌جویی بهتری دارد.</li>
+        <li>برای نگهداری بسته بزرگ حتماً <a href="article.html?id=storage-tips" title="راهنمای نگهداری توتون">راهنمای نگهداری توتون</a> را بخوانید؛ بسته زیپ‌دار فویلی، عطر را تا آخرین برگ قفل می‌کند.</li>
+      </ol>
+      <p>قیمت‌گذاری وزنی همه برگ‌های فله در <a href="products.html?cat=tobacco">صفحه توتون‌های فله Mr Organico</a> اعمال شده است؛ قیمت هر وزن را شفاف و بدون گمراهی می‌بینید.</p>
+      <h3 lang="en" dir="ltr">Buying Pipe & RYO Tobacco in Bulk (English Section)</h3>
+      <div lang="en" dir="ltr">
+        <p>Bulk tobacco pricing is weight-tiered: price per gram decreases as pack size increases (50g sample → 100g standard → 500g → 1kg base price). Start with a 50g sample, then scale up once you like the blend — and never buy more than your real consumption.</p>
+        <p><b>Related English terms:</b> bulk tobacco, pipe tobacco by weight, RYO tobacco prices, kilo tobacco, hand rolling tobacco supplier, organic bulk tobacco.</p>
+      </div>`,
+  },
+  {
+    id: 'tubes-vs-hand-rolling',
+    title: 'پوکه‌پرکن یا سیگار دستی؟ مقایسه هزینه، سرعت و طعم',
+    img: 'images/p01.webp',
+    cat: 'راهنمای خرید', date: '۱۴۰۴/۰۸/۱۷', read: '۶ دقیقه',
+    tags: ['پوکه سیگار', 'خشابی', 'پوکه‌پرکن', 'سیگار دست‌ساز', 'کاغذ سیگار', 'فیلتر سیگار'],
+    excerpt: 'برای سیگار دست‌ساز دو مسیر وجود دارد: پر کردن پوکه با خشابی، یا رول دستی با کاغذ؛ مقایسه دقیق این دو، انتخاب را روشن می‌کند.',
+    body: `
+      <p>«سیگار دست‌ساز» یک روش ندارد؛ دو روش دارد — و تفاوت این دو روش هم در <b>هزینه</b> است و هم در <b>حسِ مصرف</b>:</p>
+      <h2>روش اول: پوکه و خشابی (تزریق)</h2>
+      <p><a href="product.html?id=p01" title="خرید پوکه سیگار کینگ‌سایز">پوکه سیگار</a> یک لوله کاغذی با فیلتر آماده است؛ شما فقط توتون را با <a href="product.html?id=a25" title="خرید خشابی دستی اسلیم">خشابی دستی</a> (پوکه‌پرکن) داخل آن تزریق می‌کنید. مزیت‌ها:</p>
+      <ul>
+        <li><b>سرعت:</b> هر پوکه در چند ثانیه پر می‌شود؛ ایده‌آل برای مصرف‌کننده روزانه.</li>
+        <li><b>یکنواختی:</b> تراکم تزریق و تنفس از استوانه به استوانه یکسان است.</li>
+        <li><b>بدون هزینه فیلتر جدا:</b> فیلتر از قبل داخل پوکه هست؛ کاغذ و فیلتر جدا نمی‌خواهد.</li>
+      </ul>
+      <p>برای شروع، بسته‌های <a href="product.html?id=p02" title="خرید پوکه کارتل بلو ۲۰۰ عددی">پوکه کارتل ۲۰۰ عددی</a> بهترین نسبت قیمت به تعداد را دارند.</p>
+      <h2>روش دوم: رول دستی با کاغذ</h2>
+      <p>کلاسیک و کاملاً دستی: توتون را روی <a href="product.html?id=a21" title="خرید کاغذ سیگار الشام بدون چسب">کاغذ سیگار بدون چسب</a> می‌ریزید و خودتان می‌پیچید. مزیت‌ها:</p>
+      <ul>
+        <li><b>کنترل کامل:</b> تراکم، قطر و طول کاملاً دست شماست.</li>
+        <li><b>حسِ آیینی:</b> پیچیدن توسط خودِ دست، بخشی از لذت است.</li>
+        <li><b>انتخاب آزاد فیلتر:</b> بدون فیلتر یا با فیلتر اختیاری.</li>
+      </ul>
+      <blockquote>جمع‌بندی: «سرعت و یکنواختی» امتیاز خشابی است، «کنترل کامل و آیین» امتیاز رول دستی. اگر رول‌پیچیدن برای شما سخت است، <a href="product.html?id=a01" title="خرید رول پیچ فلزی">رول‌پیچ فلزی</a> کمک خوبی است.</blockquote>
+      <h2>مقایسه هزینه‌ها</h2>
+      <p>هزینه اصلی در هر دو روش، <b>قیمت هر گرم توتون</b> است؛ تفاوت واقعی روش‌ها در <b>هزینه متعلقات</b> است: پوکه گران‌تر از کاغذ، اما فیلتر و سرعت را رایگان می‌دهد. برای حساب دقیق، قیمت‌ها را در <a href="products.html?cat=tube">صفحه پوکه‌ها</a> و <a href="products.html?cat=accessory">صفحه ادوات</a> مقایسه کنید.</p>
+      <h3 lang="en" dir="ltr">Tubes vs Hand Rolling (English Section)</h3>
+      <div lang="en" dir="ltr">
+        <p><b>Tube injecting (injector + cigarette tubes):</b> faster, uniform, filter included. <b>Hand rolling (papers):</b> full control of size and density, more ritual. The cost per cigarette is mostly driven by the price of tobacco per gram in both; accessories make the real difference.</p>
+        <p><b>Related English terms:</b> cigarette tubes, tube injector, hand roller, rolling papers, RYO cigarettes, filter tubes king size, slim tubes.</p>
+      </div>`,
+  },
+  {
+    id: 'cigarette-holder-guide',
+    title: 'چوب سیگار (Holder)؛ چیست، برای چه کسانی و چرا ارزش دارد؟',
+    img: 'images/a07.webp',
+    cat: 'آموزشی', date: '۱۴۰۴/۰۸/۱۸', read: '۵ دقیقه',
+    tags: ['چوب سیگار', 'سیگارت', 'holder', 'ادوات سیگار', 'پیپ خاتم', 'خرید ادوات'],
+    excerpt: 'چوب سیگار نه پیپ است و نه سیگار عادی؛ ابزاری کلاسیک و بین‌ابینی که چند مزیت کاملاً عملی دارد.',
+    body: `
+      <p><b>چوب سیگار (Cigarette Holder)</b> ابزاری کلاسیک است که اغلب با پیپ اشتباه گرفته می‌شود. فرق اساسی: در پیپ، توتون فله در کاسه می‌سوزد؛ اما در <b>چوب سیگار، سیگار آماده داخل نوک دستگاه قرار می‌گیرد</b> و فیلتر و کاغذ آن به‌صورت آماده در اختیار شماست.</p>
+      <h2>چند مزیت کاملاً عملی</h2>
+      <ul>
+        <li><b>فاصله از سر بسته:</b> دود پیش از رسیدن به دهان تهویه می‌شود؛ گرمای مستقیم و تیز بودن نفس کمتر می‌شود.</li>
+        <li><b>فیلتر اختیاری:</b> مدل‌های <a href="product.html?id=a23" title="خرید چوب سیگار فیلتردار ساندا">فیلتردار</a> با فیلتر تعویض‌پذیر کار می‌کنند.</li>
+        <li><b>مصرف کامل‌تر:</b> پک‌های انتهایی هم قابل تنظیم می‌شوند؛ سیگار تمیزتر تمام می‌شود.</li>
+        <li><b>حفاظت انگشتان:</b> با مدل‌های مثل <a href="product.html?id=a12" title="خرید چوب سیگار دوسر برنجی چوب گردو">دوسر برنجی با چوب گردو</a> رنگ و بوی تنباکو روی دست کمتر می‌ماند.</li>
+      </ul>
+      <blockquote>چوب سیگار برای کسی است که «مصرف مرتب، ملایم و تمیز» می‌خواهد — نه کسی که پیپ می‌کشد، نه کسی که بدون ادوات سیگار می‌کشد.</blockquote>
+      <h2>مواد ساخت و انتخاب</h2>
+      <ul>
+        <li><b>برنجی:</b> دم‌کردن عطر تمیزتر و حس کلاسیک؛ <a href="product.html?id=a10" title="خرید چوب سیگار طرح سورنا">مدل‌های طرح‌دار برنجی</a> محبوب کلکسیونی‌ها هستند.</li>
+        <li><b>چوبی:</b> گردو و مشابه، حس دستِ آرام‌تری می‌دهد؛ <a href="product.html?id=a07" title="خرید چوب سیگار مگنتی اورجینال">مدل مگنتی اورجینال</a> نمونه استاندارد آن است.</li>
+        <li><b>دوتکه کلاسیک:</b> سبک نمایشی و دراز؛ <a href="product.html?id=a24" title="خرید چوب سیگار دوتیکه طرح کلاسیک">مدل کلاسیک دوتیکه</a> انتخاب این دسته است.</li>
+      </ul>
+      <p>اگر اهل سیگار دست‌ساز هستید، ترکیب <b>چوب سیگار + پوکه فیلتردار</b> را امتحان کنید؛ برای نشست‌های طولانی، این ترکیب عملی‌ترین انتخاب است.</p>
+      <h3 lang="en" dir="ltr">Cigarette Holder — What and Why (English Section)</h3>
+      <div lang="en" dir="ltr">
+        <p>A <b>cigarette holder</b> is a classic accessory in which the finished cigarette sits inside the stem — distinct from a pipe, where loose leaf burns in a bowl. Practical benefits: cooler and gentler smoke, optional filter inserts, cleaner fingers and a more complete burn-down.</p>
+        <p><b>Related English terms:</b> cigarette holder, cigarette tube holder, brass cigarette holder, wooden holder, classic smoking accessory, smoking holder filter.</p>
+      </div>`,
+  },
 ];

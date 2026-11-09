@@ -452,8 +452,7 @@ const ARTICLES = [
   {
     id: 'cigarette-holder-guide',
     title: 'چوب سیگار (Holder)؛ چیست، برای چه کسانی و چرا ارزش دارد؟',
-    img: 'images/article-cut-fine.jpg',
-    /* ⏳ موقت — تا وقتی عکس مخصوص چوب سیگار (Holder) ارسال شود */
+    img: 'images/article-cig-holder.jpg',
     cat: 'آموزشی', date: '۱۴۰۴/۰۸/۱۸', read: '۵ دقیقه',
     tags: ['چوب سیگار', 'سیگارت', 'holder', 'ادوات سیگار', 'پیپ خاتم', 'خرید ادوات'],
     excerpt: 'چوب سیگار نه پیپ است و نه سیگار عادی؛ ابزاری کلاسیک و بین‌ابینی که چند مزیت کاملاً عملی دارد.',

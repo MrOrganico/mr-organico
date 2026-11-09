@@ -186,7 +186,7 @@ header.site{
   background-image:radial-gradient(var(--gold) .8px, transparent .8px);
   background-size:26px 26px;
 }
-.hero-grid{ position:relative; z-index:1; display:grid; grid-template-columns:1.15fr .85fr; gap:48px; align-items:center; }
+.hero-grid{ position:relative; z-index:5; display:grid; grid-template-columns:1.15fr .85fr; gap:48px; align-items:center; }
 .hero h1{
   font-size:clamp(1.9rem,4.6vw,3.1rem); font-weight:900; line-height:1.55;
   margin:14px 0 18px;
@@ -1070,3 +1070,45 @@ footer.site{ background:var(--bg-2); border-top:1px solid var(--line); margin-to
 ::-webkit-scrollbar-track{ background:var(--bg); }
 ::-webkit-scrollbar-thumb{ background:#1f4254; border-radius:10px; }
 ::-webkit-scrollbar-thumb:hover{ background:var(--gold); }
+
+/* =========================================================
+   ذرات نوری صفحه اصلی — تصاویر شناور محصولات با هاله نور
+   (بدون تغییر در قواعد .hero چون اصلش از قبل کامل و صحیح است)
+   ========================================================= */
+.hero-particles{
+  position:fixed; inset:0; width:100%; height:100vh;
+  z-index:0; pointer-events:none; display:block;
+}
+
+.particle-images{
+  position:absolute; inset:0; width:100%; height:100%;
+  z-index:2; pointer-events:none; overflow:visible;
+}
+
+.particle-img{
+  position:absolute;
+  width:clamp(90px, 14vw, 220px);
+  height:clamp(90px, 14vw, 220px);
+  object-fit:contain;
+  opacity:0;
+  animation:floatParticle 20s linear infinite;
+  filter:drop-shadow(0 0 12px rgba(255,255,255,.15));
+  transition:transform .3s ease, filter .3s ease, opacity .3s ease;
+  will-change:transform, opacity;
+}
+
+.particle-img:hover{
+  transform:scale(1.35) rotate(5deg);
+  filter:drop-shadow(0 0 24px rgba(255,255,255,.45));
+  opacity:var(--op, .5) !important;
+}
+
+@keyframes floatParticle{
+  0%{ transform:translate3d(0, 0, 0) rotate(var(--rot)) scale(var(--sc)); opacity:0; }
+  15%,85%{ opacity:var(--op, .6); }
+  100%{ transform:translate3d(var(--tx), var(--ty), 0) rotate(var(--tr)) scale(var(--sc)); opacity:0; }
+}
+
+@media (max-width: 768px){
+  .particle-img{ width:clamp(60px, 12vw, 140px); height:clamp(60px, 12vw, 140px); }
+}

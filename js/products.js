@@ -107,6 +107,38 @@ const PRODUCTS = [
 /* 👑 ویژه‌های صفحه اصلی (شناسه‌ها) */
 const FEATURED = ['t03', 't02', 'a14', 't01', 'a01', 'p07'];
 
+/* 🌀 گروه‌های تصاویر شناور هیرو — ۷ دسته × ۷ تصویر */
+const PARTICLE_GROUPS = {
+  group1: { name: 'توتون پریمیوم', imgs: [
+    'images/t01.webp', 'images/t02.webp', 'images/t04.webp',
+    'images/t06.webp', 'images/t11.webp', 'images/t12.webp', 'images/t16.webp'
+  ]},
+  group2: { name: 'توتون سنتی و ایرانی', imgs: [
+    'images/t03.webp', 'images/t05.webp', 'images/t07.webp',
+    'images/t08.webp', 'images/t10.webp', 'images/t13.webp', 'images/t15.webp'
+  ]},
+  group3: { name: 'توتون ترکیه و شرقی', imgs: [
+    'images/t14.webp', 'images/hero-tobacco.webp', 'images/leaf-cigars.webp',
+    'images/leaf-hanging.jpg', 'images/tobacco-pile.jpg', 'images/cartel-big.jpg', 'images/cut-tobacco.jpg'
+  ]},
+  group4: { name: 'پوکه و فیلتر', imgs: [
+    'images/p01.webp', 'images/p02.webp', 'images/p04.webp',
+    'images/p07.webp', 'images/p09.webp', 'images/p10.webp', 'images/p12.webp'
+  ]},
+  group5: { name: 'پیپ و ادوات چوبی', imgs: [
+    'images/a14.webp', 'images/a15.webp', 'images/a16.webp',
+    'images/a27.webp', 'images/p05.webp', 'images/p08.webp', 'images/p11.webp'
+  ]},
+  group6: { name: 'ادوات برنجی و فلزی', imgs: [
+    'images/a10.webp', 'images/a12.webp', 'images/a23.webp',
+    'images/a24.webp', 'images/a01.webp', 'images/a25.webp', 'images/a26.webp'
+  ]},
+  group7: { name: 'کاغذ، کیس و لوازم جانبی', imgs: [
+    'images/a21.webp', 'images/a22.webp', 'images/a28.webp',
+    'images/a03.webp', 'images/p03.webp', 'images/p06.webp', 'images/a07.webp'
+  ]}
+};
+
 /* 🔍 کلیدواژه‌های SEO انگلیسی — زیر توضیحات توتون‌ها نمایش داده می‌شود */
 const SEO_TXT = {
   t01: 'Mr Organico — Organic German Tobacco • Additive-Free Cigarette Blend',

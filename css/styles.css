@@ -555,7 +555,7 @@ header.site{
   animation:mqSlide 120s linear infinite; will-change:transform;
 }
 .mq-set{ display:flex; gap:18px; padding-inline-end:18px; flex-shrink:0; }
-.mq-band:hover .mq-track{ animation-play-state:paused; }
+/* .mq-band:hover .mq-track{ animation-play-state:paused; }  -- removed: user wants continuous motion */
 @keyframes mqSlide{ 0%{ transform:translateX(0); } 50%{ transform:translateX(-50%); } 100%{ transform:translateX(0); } }
 .mq-card{
   width:215px; flex-shrink:0; border-radius:16px; overflow:hidden;

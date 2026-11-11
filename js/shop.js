@@ -232,7 +232,7 @@ function injectProductSEO(p){
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'خانه', item: BASE + 'index.html' },
-      { '@type': 'ListItem', position: 2, name: j(cat), item: BASE + 'products.html?cat=' + encodeURIComponent(p.cat) },
+      { '@type': 'ListItem', position: 2, name: cat, item: BASE + 'products.html?cat=' + encodeURIComponent(p.cat) },
       { '@type': 'ListItem', position: 3, name, item: url }
     ]
   };

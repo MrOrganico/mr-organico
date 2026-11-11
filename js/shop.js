@@ -1,4 +1,4 @@
-/* =========================================================
+﻿/* =========================================================
    Mr Organico — منطق فروشگاه (کاتالوگ / محصول / سبد)
    ========================================================= */
 
@@ -170,6 +170,18 @@ function injectProductSEO(p){
   setMeta('meta[name="twitter:description"]', 'content', jdesc, { tag:'meta', attrs:[['name','twitter:description']] });
   setMeta('link[rel="canonical"]', 'href', url, { tag:'link', attrs:[['rel','canonical']] });
 
+  /* ???? ?????? ?????? ???? (per-product SEO) */
+  const kw = [name, cat, p.origin, p.brand, p.sub, 'Mr Organico', '????? ???????', 'organic tobacco', '????? ?????', '????? ??????'].filter(Boolean).join(', ');
+  setMeta('meta[name="keywords"]', 'content', kw, { tag:'meta', attrs:[['name','keywords']] });
+
+  /* alt ???? ??? ???? ?????? */
+  const galImg = document.querySelector('#galMain img');
+  if (galImg) galImg.setAttribute('alt', `${name} - ${cat} Mr Organico`);
+
+  /* og:image:alt ? twitter:image:alt */
+  setMeta('meta[property="og:image:alt"]', 'content', `${name} - ${cat}`, { tag:'meta', attrs:[['property','og:image:alt']] });
+  setMeta('meta[name="twitter:image:alt"]', 'content', `${name} - ${cat}`, { tag:'meta', attrs:[['name','twitter:image:alt']] });
+
   /* قیمت نمایشی واقعی برای اسکیما */
   const kilo = kiloOf(p);
   const hasOffer = !!(p.price || kilo) && p.stock !== false;
@@ -178,29 +190,46 @@ function injectProductSEO(p){
     ? 'https://schema.org/OutOfStock'
     : 'https://schema.org/InStock';
 
-  const ld = {
-    '@context': 'https://schema.org',
-    '@type': 'Product',
-    name,
-    image: p.img ? [`${BASE}${p.img}`, `${BASE}images/og-image.jpg`] : [`${BASE}images/og-image.jpg`],
-    description: jdesc,
-    sku: p.id,
-    mpn: p.id,
-    brand: { '@type': 'Brand', name: 'Mr Organico', alternateName: 'میستر ارگانیک' },
-    category: cat,
-    material: p.cat === 'tobacco' ? 'توتون طبیعی ارگانیک' : undefined,
-    audience: { '@type': 'PeopleAudience', suggestedMinimumAge: 18 },
-    aggregateRating: undefined,
-    offers: hasOffer ? {
-      '@type': 'Offer',
-      url,
-      priceCurrency: 'IRR',
-      price: String(offerPrice),
-      availability,
-      itemCondition: 'https://schema.org/NewCondition',
-      seller: { '@type': 'Organization', name: 'Mr Organico', url: BASE }
-    } : undefined
-  };
+   const ld = {
+     '@context': 'https://schema.org',
+     '@type': 'Product',
+     name,
+     image: p.img ? [`${BASE}${p.img}`, `${BASE}images/og-image.jpg`] : [`${BASE}images/og-image.jpg`],
+     description: jdesc,
+     sku: p.id,
+     mpn: p.id,
+     brand: { '@type': 'Brand', name: 'Mr Organico', alternateName: 'مستر ارگانیکو' },
+     category: cat,
+     material: p.cat === 'tobacco' ? 'توتون طبیعی بدون افزودنی' : (p.cat === 'accessory' ? 'فلز / چوب / چرم / پلاستیک' : undefined),
+     size: p.weight || p.unit || undefined,
+     audience: { '@type': 'PeopleAudience', suggestedMinimumAge: 18 },
+     aggregateRating: undefined,
+     additionalProperty: p.origin ? [{ '@type': 'PropertyValue', name: 'Origin', value: p.origin }] : undefined,
+     offers: hasOffer ? {
+       '@type': 'Offer',
+       url,
+       priceCurrency: 'IRR',
+       price: String(offerPrice),
+       priceValidUntil: new Date(Date.now() + 30*24*60*60*1000).toISOString().split('T')[0],
+       availability,
+       itemCondition: 'https://schema.org/NewCondition',
+       seller: { '@type': 'Organization', name: 'Mr Organico', url: BASE },
+       shippingDetails: {
+         '@type': 'OfferShippingDetails',
+         shippingRate: { '@type': 'MonetaryAmount', value: '0', currency: 'IRR' },
+         shippingDestination: { '@type': 'DefinedRegion', addressCountry: 'IR' },
+         deliveryTime: { '@type': 'ShippingDeliveryTime', handlingTime: { '@type': 'QuantitativeValue', minValue: 1, maxValue: 2, unitCode: 'DAY' }, transitTime: { '@type': 'QuantitativeValue', minValue: 2, maxValue: 5, unitCode: 'DAY' } }
+       },
+       hasMerchantReturnPolicy: {
+         '@type': 'MerchantReturnPolicy',
+         applicableCountry: 'IR',
+         returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
+         merchantReturnDays: 7,
+         returnMethod: 'https://schema.org/ReturnByMail',
+         returnFees: 'https://schema.org/FreeReturn'
+       }
+     } : undefined
+   };
 
   /* امتیاز و بازخورد */
   try{

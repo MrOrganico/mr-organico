@@ -556,7 +556,7 @@ header.site{
 }
 .mq-set{ display:flex; gap:18px; padding-inline-end:18px; flex-shrink:0; }
 /* .mq-band:hover .mq-track{ animation-play-state:paused; }  -- removed: user wants continuous motion */
-@keyframes mqSlide{ 0%{ transform:translateX(0); } 50%{ transform:translateX(-50%); } 100%{ transform:translateX(0); } }
+@keyframes mqSlide{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
 .mq-card{
   width:215px; flex-shrink:0; border-radius:16px; overflow:hidden;
   background:var(--surface); border:1px solid var(--line); transition:.3s;

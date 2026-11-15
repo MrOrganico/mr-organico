@@ -577,17 +577,6 @@ function initFeaturedCarousel(){
       angle += vel;
     }
     ring.style.transform = `rotateY(${angle}deg)`;
-    /* opacity + blur on side cards for depth effect */
-    [...ring.children].forEach((el, i) => {
-      const ca = ((i * step + angle) % 360 + 360) % 360;
-      const diff = ca > 180 ? ca - 360 : ca;
-      const ad = Math.abs(diff);
-      const op = ad < 25 ? 1 : Math.max(0.4, 1 - (ad - 25) / 100 * 0.6);
-      const bl = ad < 25 ? 0 : Math.min(4, (ad - 25) / 20);
-      el.style.opacity = op.toFixed(2);
-      el.style.filter = bl > 0.3 ? 'blur(' + bl.toFixed(1) + 'px)' : '';
-      el.style.transition = 'opacity .6s ease, filter .6s ease';
-    });
   }
   loop();
 }
@@ -647,7 +636,7 @@ function initCoverflow(stageId, ringId, dotsId, ids){
       el.style.transform = `translateX(${x}px) translateZ(${z}px) rotateY(${rot}deg) scale(${scl})`;
       el.style.opacity = op;
       el.style.zIndex = 20 - abs;
-      el.style.filter = `brightness(${Math.max(.55, 1 - abs * .13)}) blur(${abs > 1 ? (abs * 1.2).toFixed(1) : 0}px)`;
+      el.style.filter = `brightness(${Math.max(.55, 1 - abs * .13)})`;
       el.classList.toggle('cf-center', rel === 0);
     });
     if(dots) [...dots.children].forEach((d, i) => d.classList.toggle('on', i === cur));

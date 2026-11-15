@@ -1,4 +1,4 @@
-/* =========================================================
+﻿/* =========================================================
    Mr Organico — منطق مشترک
    هدر/فوتر، سبد خرید (localStorage)، تصاویر جایگزین، ابزارها
    ========================================================= */
@@ -235,7 +235,7 @@ function renderFooter(){
             <h4>ارتباط با ما</h4>
             <ul class="footer-contact">
               <li>${I.phone}<a href="tel:${PHONE_INTL}">${PHONE}</a></li>
-              <li>${I.mail}<a href="mailto:info@mrorganico.com">info@mrorganico.com</a></li>
+              <li>${I.mail}<a href="mailto:info.mr.organico@gmail.com">info.mr.organico@gmail.com</a></li>
               <li>${I.globe}صادرات به منطقه و بازار جهانی</li>
               <li>${I.headset}پشتیبانی همه‌روزه ۹ تا ۲۱</li>
             </ul>

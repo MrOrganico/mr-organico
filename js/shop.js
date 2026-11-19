@@ -757,6 +757,7 @@ function initCartPage(){
 /* ─── اسکیمای کامل Product (قیمت + موجودی) برای صفحه محصولات ─── */
 (function injectCatalogSchema(){
   try{
+    const BASE = 'https://organico.cam/';
     const sc = [...document.head.querySelectorAll('script[type="application/ld+json"]')]
       .find(s => s.textContent.indexOf('"CollectionPage"') > -1);
     if(!sc) return;
@@ -806,5 +807,5 @@ function initCartPage(){
       itemListElement: items
     };
     sc.textContent = JSON.stringify(data, (k, v) => v === undefined ? undefined : v);
-  }catch(e){}
+  }catch(e){ console.warn('MO catalogSchema:', e); }
 })();

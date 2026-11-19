@@ -323,7 +323,7 @@ function initProduct(){
       <div class="pd-gallery">
         <div class="gal-main" id="galMain" title="برای بزرگ‌نمایی کلیک کنید">
           ${p.img
-            ? `<img src="${p.img}" alt="${p.name}">`
+            ? `<img src="${p.img}" alt="${p.name} - ${(CATEGORIES[p.cat] && CATEGORIES[p.cat].name) || 'محصول'} مستر ارگانیکو">`
             : placeholderSVG(p.cat, p.icon)}
           <span class="gal-zoom">🔍 بزرگ‌نمایی</span>
         </div>
@@ -490,7 +490,7 @@ function initProduct(){
     gal.onclick = () => {
       const lb = document.createElement('div');
       lb.className = 'lightbox';
-      lb.innerHTML = `<img src="${p.img}" alt="${p.name}"><button class="lb-close">✕</button>`;
+      lb.innerHTML = `<img src="${p.img}" alt="${p.name} - ${(CATEGORIES[p.cat] && CATEGORIES[p.cat].name) || 'محصول'} مستر ارگانیکو"><button class="lb-close">✕</button>`;
       document.body.appendChild(lb);
       lb.onclick = e => { if(e.target === lb || e.target.closest('.lb-close')) lb.remove(); };
     };
@@ -753,3 +753,58 @@ function initCartPage(){
   }
   render();
 }
+
+/* ─── اسکیمای کامل Product (قیمت + موجودی) برای صفحه محصولات ─── */
+(function injectCatalogSchema(){
+  try{
+    const sc = [...document.head.querySelectorAll('script[type="application/ld+json"]')]
+      .find(s => s.textContent.indexOf('"CollectionPage"') > -1);
+    if(!sc) return;
+    const data = JSON.parse(sc.textContent);
+    const items = PRODUCTS.map((p, i) => {
+      const url = BASE + 'product.html?id=' + p.id;
+      const catName = (CATEGORIES[p.cat] || {}).name || p.cat;
+      let offerPrice = 0, hasOffer = false;
+      if(p.stock !== false){
+        if(p.price){ offerPrice = p.price; hasOffer = true; }
+        else if(typeof hasWeights === 'function' && hasWeights(p) && typeof minWeightPrice === 'function'){
+          offerPrice = minWeightPrice(p); hasOffer = !!offerPrice;
+        } else if(typeof kiloOf === 'function' && kiloOf(p) && typeof priceFor === 'function'){
+          offerPrice = priceFor(p, 100); hasOffer = !!offerPrice;
+        }
+      }
+      const item = {
+        '@type': 'ListItem',
+        position: i + 1,
+        item: {
+          '@type': 'Product',
+          name: p.name,
+          url: url,
+          image: p.img ? BASE + p.img : BASE + 'images/og-image.jpg',
+          sku: p.id,
+          category: catName,
+          brand: { '@type': 'Brand', name: 'Mr Organico', alternateName: 'مستر ارگانیکو' },
+          audience: { '@type': 'PeopleAudience', suggestedMinimumAge: 18 },
+          offers: hasOffer ? {
+            '@type': 'Offer',
+            url: url,
+            priceCurrency: 'IRR',
+            price: String(offerPrice),
+            priceValidUntil: new Date(Date.now() + 30*86400000).toISOString().split('T')[0],
+            availability: 'https://schema.org/InStock',
+            itemCondition: 'https://schema.org/NewCondition',
+            seller: { '@type': 'Organization', name: 'Mr Organico', url: BASE }
+          } : undefined
+        }
+      };
+      return item;
+    });
+    data.mainEntity = {
+      '@type': 'ItemList',
+      name: 'فهرست کامل محصولات توتون ارگانیک و ادوات پیپ مستر ارگانیکو',
+      numberOfItems: PRODUCTS.length,
+      itemListElement: items
+    };
+    sc.textContent = JSON.stringify(data, (k, v) => v === undefined ? undefined : v);
+  }catch(e){}
+})();

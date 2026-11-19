@@ -1112,3 +1112,6 @@ footer.site{ background:var(--bg-2); border-top:1px solid var(--line); margin-to
 @media (max-width: 768px){
   .particle-img{ width:clamp(60px, 12vw, 140px); height:clamp(60px, 12vw, 140px); }
 }
+
+/* دسترسی بهتر دکمه افزودن به سبد در موبایل (حداقل ۴۶px) */
+@media(max-width:600px){ .add-btn{ width:46px; height:46px; } .add-btn svg{ width:21px; height:21px; } }

@@ -170,6 +170,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       .slice(0, 3)
       .map(r => r.x);
 
+    /* لینک مستقیم محصولات فروشگاه: توتون، پیپ، ادوات */
+    const _pickT = PRODUCTS.find(x => x.cat === 'tobacco');
+    const _pickP = PRODUCTS.find(x => x.cat === 'accessory' && x.sub === 'pipe') || PRODUCTS.find(x => x.cat === 'accessory');
+    const _pickA = PRODUCTS.find(x => x.cat === 'tube');
+    const shopPicks = [_pickT, _pickP, _pickA].filter(Boolean);
     box.innerHTML = `
       <nav class="article-crumbs crumbs" aria-label="مسیر ناوبری">
         <a href="index.html">خانه</a><span>/</span>
@@ -191,6 +196,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <b>تجربه خلوص واقعی را شروع کنید 🌿</b>
         <a class="btn btn-gold" href="products.html">مشاهده محصولات</a>
       </div>
+      <section class="related-posts" aria-label="محصولات فروشگاه">
+        <h2 class="related-h">محصولات پیشنهادی فروشگاه</h2>
+        <div class="related-grid">
+          ${shopPicks.map(x => `
+            <a class="related-card" href="product.html?id=${x.id}" rel="noopener">
+              <span class="related-thumb"><img src="${x.img || 'images/og-image.jpg'}" alt="${x.name} - ${(CATEGORIES[x.cat] || {}).name || 'محصول'} مستر ارگانیکو" loading="lazy"></span>
+              <span class="related-body">
+                <b>${x.name}</b>
+                <em>${(CATEGORIES[x.cat] || {}).name || ''}</em>
+              </span>
+            </a>`).join('')}
+        </div>
+      </section>
       ${rel.length ? `
       <section class="related-posts" aria-label="مقاله‌های مرتبط">
         <h2 class="related-h">مقاله‌های مرتبط</h2>

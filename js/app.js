@@ -55,7 +55,7 @@ function placeholderSVG(cat, icon){
 }
 
 function productThumb(p){
-  if(p.img) return `<div class="p-thumb" style="background:#0d2230"><img src="${p.img}" alt="${p.name}" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>`;
+  if(p.img) return `<div class="p-thumb" style="background:#0d2230"><img src="${p.img}" alt="${p.name} - ${(CATEGORIES[p.cat] && CATEGORIES[p.cat].name) || 'محصول'} مستر ارگانیکو" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>`;
   return `<div class="p-thumb">${placeholderSVG(p.cat, p.icon)}</div>`;
 }
 

@@ -18,7 +18,7 @@
   --danger:    #c05640;
   --radius:    16px;
   --shadow:    0 20px 50px -18px rgba(0,0,0,.65);
-  --font: 'Vazirmatn', Tahoma, sans-serif;
+  --font: 'Estedad', 'Vazirmatn', Tahoma, sans-serif;
 }
 
 *{ margin:0; padding:0; box-sizing:border-box; }
@@ -255,7 +255,7 @@ header.site{
 @keyframes orbSpin    { to{ transform:rotate(360deg); } }
 @keyframes orbSpinRev { to{ transform:rotate(-360deg); } }
 
-.orb-ring text{ font-family:'Vazirmatn',Tahoma,sans-serif; font-weight:700; direction:ltr; }
+.orb-ring text{ font-family:'Estedad','Vazirmatn',Tahoma,sans-serif; font-weight:700; direction:ltr; }
 .orb-lat{
   font-size:14.5px; letter-spacing:5.6px; fill:var(--gold-2);
   opacity:.92;

@@ -5,4 +5,4 @@ Disallow: /admin.html
 # --- موتورهای جستجو مجاز به ایندکس صفحات عمومی هستند ---
 # صفحه مدیریت (admin.html) به هیچ عنوان ایندکس نشود.
 
-Sitemap: https://mr-organico.vercel.app/sitemap.xml
+Sitemap: https://organico.cam/sitemap.xml
